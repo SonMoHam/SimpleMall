@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124B9472292F942400E12689 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9471292F942400E12689 /* HomeTarget.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124B9471292F942400E12689 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124B946C292F93C100E12689 /* CustomLayer */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E9292F70330092E005 /* Infrastructure */,
+				12F707E0292F68CC0092E005 /* Endpoints */,
+				12F707EA292F70730092E005 /* Implements */,
+			);
+			path = CustomLayer;
+			sourceTree = "<group>";
+		};
+		124B946F292F93F800E12689 /* MoyaLayer */ = {
+			isa = PBXGroup;
+			children = (
+				124B9470292F940A00E12689 /* Target */,
+			);
+			path = MoyaLayer;
+			sourceTree = "<group>";
+		};
+		124B9470292F940A00E12689 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				124B9471292F942400E12689 /* HomeTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		126D6FBB292F306D004FAB0D = {
 			isa = PBXGroup;
 			children = (
@@ -180,10 +208,9 @@
 		12F707B9292F46070092E005 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				12F707E9292F70330092E005 /* Infrastructure */,
 				12F707E3292F69DA0092E005 /* DataMapping */,
-				12F707E0292F68CC0092E005 /* Endpoints */,
-				12F707EA292F70730092E005 /* Implements */,
+				124B946C292F93C100E12689 /* CustomLayer */,
+				124B946F292F93F800E12689 /* MoyaLayer */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -374,6 +401,7 @@
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
+				124B9472292F942400E12689 /* HomeTarget.swift in Sources */,
 				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
