@@ -33,8 +33,10 @@ public final class Endpoint<R>: Requestable {
         queryParametersEncodable: Encodable? = nil,
         bodyParameters: [String : Any] = [:]
     ) {
-        self.baseURL = baseURL
-        self.path = path
+        // baseURL 끝 / 있을 시 삭제
+        self.baseURL = baseURL.last == "/" ? String(baseURL.dropLast()) : baseURL
+        // path 앞 / 없을 시 추가
+        self.path = path.first == "/" ? path : "/\(path)"
         self.method = method
         self.headerParameters = headerParameters
         self.queryParameters = queryParameters
@@ -59,7 +61,7 @@ public protocol Requestable {
 
 extension Requestable {
     func url() -> URL? {
-        // base last 슬래쉬 제거 후 fullPath 조합
+        // base last 슬래쉬 제거 후 fullPath 조합, 기능 중복 ???: url 메소드 내 로직은 삭제?
         let baseURL: String = baseURL.last == "/" ? String(baseURL.dropLast()) : baseURL
         let fullPath: String = path.first == "/" ? "\(baseURL)\(path)" : "\(baseURL)/\(path)"
         guard var urlComponents = URLComponents(string: fullPath) else {
