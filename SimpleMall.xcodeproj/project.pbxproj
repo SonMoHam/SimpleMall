@@ -15,6 +15,7 @@
 		124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9485292FAFD600E12689 /* FavoriteViewController.swift */; };
 		124B9488292FAFDE00E12689 /* FavoriteNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9487292FAFDE00E12689 /* FavoriteNavigator.swift */; };
 		124B948A292FB0C400E12689 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9489292FB0C400E12689 /* AppManager.swift */; };
+		124B948C292FBC3400E12689 /* MainNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B948B292FBC3400E12689 /* MainNavigator.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		124B9485292FAFD600E12689 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		124B9487292FAFDE00E12689 /* FavoriteNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigator.swift; sourceTree = "<group>"; };
 		124B9489292FB0C400E12689 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		124B948B292FBC3400E12689 /* MainNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigator.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		124B9479292FA77400E12689 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				124B948B292FBC3400E12689 /* MainNavigator.swift */,
 				124B947B292FAA1400E12689 /* Home */,
 				124B9484292FAFC000E12689 /* Favorite */,
 			);
@@ -477,6 +480,7 @@
 				124B948A292FB0C400E12689 /* AppManager.swift in Sources */,
 				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
 				12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */,
+				124B948C292FBC3400E12689 /* MainNavigator.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,

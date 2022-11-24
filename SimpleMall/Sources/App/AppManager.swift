@@ -26,38 +26,13 @@ class AppManager {
     }
     
     func configureMainInterface(in window: UIWindow?) {
-        let homeNavigationController = UINavigationController()
-        homeNavigationController.tabBarItem = UITabBarItem(
-            title: "홈",
-            image: UIImage(systemName: "house"),
-            selectedImage: UIImage(systemName: "house.fill"))
-        
-        let homeNavigator = HomeNavigator(
+        let mainTabBarController = UITabBarController()
+        let mainNavigator = MainNavigator(
             services: networkUseCaseProvider,
-            navigationController: homeNavigationController)
+            tabBarController: mainTabBarController)
+
+        window?.rootViewController = mainTabBarController
         
-        let favoriteNavigationController = UINavigationController()
-        favoriteNavigationController.tabBarItem = UITabBarItem(
-            title: "좋아요",
-            image: UIImage(systemName: "heart"),
-            selectedImage: UIImage(systemName: "heart.fill"))
-        
-        let favoriteNavigator = FavoriteNavigator(
-            services: networkUseCaseProvider,
-            navigationController: favoriteNavigationController)
-        
-        // TODO: main tab으로 분리
-        
-        let tabBarController = UITabBarController()
-        tabBarController.view.backgroundColor = .systemBackground
-        tabBarController.setViewControllers(
-            [homeNavigationController, favoriteNavigationController],
-            animated: false)
-        tabBarController.tabBar.backgroundColor = .systemGray5
-        tabBarController.tabBar.tintColor = .red
-        window?.rootViewController = tabBarController
-        
-        homeNavigator.toHome()
-        favoriteNavigator.toFavorite()
+        mainNavigator.toMain()
     }
 }
