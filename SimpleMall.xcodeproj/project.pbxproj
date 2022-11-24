@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		124B9472292F942400E12689 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9471292F942400E12689 /* HomeTarget.swift */; };
 		124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */; };
+		124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		124B9471292F942400E12689 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUseCaseProvider.swift; sourceTree = "<group>"; };
+		124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResponseDTO.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */,
+				124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				12F707DD292F67790092E005 /* Endpoint.swift in Sources */,
 				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
 				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
+				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
 				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,

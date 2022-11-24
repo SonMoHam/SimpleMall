@@ -15,7 +15,7 @@ struct HomeEndpoints {
             method: .get)
     }
     
-    static func getGoods(lastId: Int) -> Endpoint<[Product]> {
+    static func getGoods(lastId: Int) -> Endpoint<GoodsResponseDTO> {
         return Endpoint(
             baseURL: "https://d2bab9i9pr8lds.cloudfront.net/api",
             path: "/home/goods",

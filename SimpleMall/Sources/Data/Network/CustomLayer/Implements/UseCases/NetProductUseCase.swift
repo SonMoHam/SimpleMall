@@ -41,7 +41,7 @@ extension NetProductUseCase: ProductUseCase {
             self?.networkService.request(with: endpoint) { result in
                 switch result {
                 case .success(let decodable):
-                    observer.onNext(decodable)
+                    observer.onNext(decodable.goods)
                 case .failure(let error):
                     print(error.localizedDescription)
                     observer.onNext([])
