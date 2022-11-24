@@ -21,6 +21,7 @@
 		126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF0292F3261004FAB0D /* ReactorKit */; };
 		126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF3292F32A2004FAB0D /* SDWebImage */; };
 		12F707AC292F370F0092E005 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AB292F370F0092E005 /* Product.swift */; };
+		12F707AE292F38500092E005 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AD292F38500092E005 /* Banner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		126D6FD3292F306E004FAB0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126D6FD5292F306E004FAB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12F707AB292F370F0092E005 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		12F707AD292F38500092E005 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				12F707AB292F370F0092E005 /* Product.swift */,
+				12F707AD292F38500092E005 /* Banner.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
+				12F707AE292F38500092E005 /* Banner.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 			);
