@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 /// Persistent - UserDefaults FavoriteProductUseCase
 final class UDFavoriteProductUseCase { }
@@ -25,3 +26,42 @@ extension UDFavoriteProductUseCase: FavoriteProductUseCase {
     }
 }
 */
+
+final class StubFavoriteProductUseCase: FavoriteProductUseCase {
+    func products() -> Observable<[Product]> {
+        let dummyProducts: [Product] = [
+            Product(
+                id: 1,
+                name: "first",
+                imageURL: "list.bullet",
+                actualPrice: 100,
+                price: 10,
+                isNew: true,
+                sellCount: 9),
+            Product(
+                id: 2,
+                name: "second",
+                imageURL: "list.bullet",
+                actualPrice: 200,
+                price: 20,
+                isNew: true,
+                sellCount: 10)
+        ]
+        return Observable.create { observer -> Disposable in
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+                observer.onNext(dummyProducts)
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func save(product: Product) -> Observable<Void> {
+        return Observable.empty()
+    }
+    
+    func delete(product: Product) -> Observable<Void> {
+        return Observable.empty()
+    }
+    
+    
+}
