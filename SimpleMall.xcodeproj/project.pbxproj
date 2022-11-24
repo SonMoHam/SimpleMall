@@ -24,6 +24,7 @@
 		12F707AE292F38500092E005 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AD292F38500092E005 /* Banner.swift */; };
 		12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B0292F3EC60092E005 /* BannerUseCase.swift */; };
 		12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B2292F3F230092E005 /* ProductUseCase.swift */; };
+		12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		12F707AD292F38500092E005 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		12F707B0292F3EC60092E005 /* BannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerUseCase.swift; sourceTree = "<group>"; };
 		12F707B2292F3F230092E005 /* ProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUseCase.swift; sourceTree = "<group>"; };
+		12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				12F707B0292F3EC60092E005 /* BannerUseCase.swift */,
 				12F707B2292F3F230092E005 /* ProductUseCase.swift */,
+				12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
+				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
