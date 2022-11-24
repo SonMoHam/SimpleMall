@@ -10,15 +10,16 @@ import Foundation
 struct HomeEndpoints {
     static func getHome() -> Endpoint<HomeResponseDTO> {
         return Endpoint(
-            baseURL: "http://d2bab9i9pr8lds.cloudfront.net/api",
+            baseURL: "https://d2bab9i9pr8lds.cloudfront.net/api",
             path: "/home",
             method: .get)
     }
     
     static func getGoods(lastId: Int) -> Endpoint<[Product]> {
         return Endpoint(
-            baseURL: "http://d2bab9i9pr8lds.cloudfront.net/api",
+            baseURL: "https://d2bab9i9pr8lds.cloudfront.net/api",
             path: "/home/goods",
-            method: .get)
+            method: .get,
+            queryParameters: ["lastId": lastId] )
     }
 }
