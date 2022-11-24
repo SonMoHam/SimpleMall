@@ -29,6 +29,7 @@
 		12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */; };
 		12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C0292F4B850092E005 /* NetBannerUseCase.swift */; };
 		12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C2292F4C480092E005 /* NetProductUseCase.swift */; };
+		12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDFavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		12F707C0292F4B850092E005 /* NetBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetBannerUseCase.swift; sourceTree = "<group>"; };
 		12F707C2292F4C480092E005 /* NetProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProductUseCase.swift; sourceTree = "<group>"; };
+		12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUseCaseProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		12F707B8292F44350092E005 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				12F707C4292F54AB0092E005 /* UseCaseProvider */,
 				12F707BA292F48580092E005 /* Persistent */,
 				12F707B9292F46070092E005 /* Network */,
 			);
@@ -200,6 +203,14 @@
 				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		12F707C4292F54AB0092E005 /* UseCaseProvider */ = {
+			isa = PBXGroup;
+			children = (
+				12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */,
+			);
+			path = UseCaseProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +311,7 @@
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
 				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
+				12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
