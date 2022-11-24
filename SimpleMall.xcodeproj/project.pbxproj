@@ -35,6 +35,7 @@
 		12F707DF292F682F0092E005 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DE292F682F0092E005 /* NetworkService.swift */; };
 		12F707E2292F68EC0092E005 /* HomeEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E1292F68EC0092E005 /* HomeEndpoints.swift */; };
 		12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */; };
+		12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E7292F6D240092E005 /* AFNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		12F707DE292F682F0092E005 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		12F707E1292F68EC0092E005 /* HomeEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoints.swift; sourceTree = "<group>"; };
 		12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseDTO.swift; sourceTree = "<group>"; };
+		12F707E7292F6D240092E005 /* AFNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				12F707E3292F69DA0092E005 /* DataMapping */,
 				12F707E0292F68CC0092E005 /* Endpoints */,
 				12F707BC292F48E00092E005 /* UseCases */,
+				12F707E6292F6D080092E005 /* Alamofire */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -250,6 +253,14 @@
 				12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		12F707E6292F6D080092E005 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E7292F6D240092E005 /* AFNetworkService.swift */,
+			);
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +368,7 @@
 				12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
+				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
