@@ -34,6 +34,7 @@
 		12F707DD292F67790092E005 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DC292F67790092E005 /* Endpoint.swift */; };
 		12F707DF292F682F0092E005 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DE292F682F0092E005 /* NetworkService.swift */; };
 		12F707E2292F68EC0092E005 /* HomeEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E1292F68EC0092E005 /* HomeEndpoints.swift */; };
+		12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		12F707DC292F67790092E005 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		12F707DE292F682F0092E005 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		12F707E1292F68EC0092E005 /* HomeEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoints.swift; sourceTree = "<group>"; };
+		12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			children = (
 				12F707DC292F67790092E005 /* Endpoint.swift */,
 				12F707DE292F682F0092E005 /* NetworkService.swift */,
+				12F707E3292F69DA0092E005 /* DataMapping */,
 				12F707E0292F68CC0092E005 /* Endpoints */,
 				12F707BC292F48E00092E005 /* UseCases */,
 			);
@@ -239,6 +242,14 @@
 				12F707E1292F68EC0092E005 /* HomeEndpoints.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		12F707E3292F69DA0092E005 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */,
+			);
+			path = DataMapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
+				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
