@@ -9,19 +9,49 @@ import Foundation
 import RxSwift
 
 /// Network - ProductUseCase 구현체
-final class NetProductUseCase { }
-
-/* TODO: 채택, 준수 구현
-extension NetProductUseCase: ProductUseCase {
-    func products() -> RxSwift.Observable<[Product]> {
-        <#code#>
-    }
+final class NetProductUseCase {
+    private let networkService: NetworkService
     
-    func products(lastID: Int) -> RxSwift.Observable<[Product]> {
-        <#code#>
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
 }
- */
+
+
+extension NetProductUseCase: ProductUseCase {
+    func products() -> Observable<[Product]> {
+        let endpoint = HomeEndpoints.getHome()
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.networkService.request(with: endpoint) { result in
+                switch result {
+                case .success(let decodable):
+                    observer.onNext(decodable.goods)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    observer.onNext([])
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func products(lastID: Int) -> Observable<[Product]> {
+        let endpoint = HomeEndpoints.getGoods(lastId: lastID)
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.networkService.request(with: endpoint) { result in
+                switch result {
+                case .success(let decodable):
+                    observer.onNext(decodable)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    observer.onNext([])
+                }
+            }
+            return Disposables.create()
+        }
+    }
+}
+ 
 
 final class StubProductUseCase: ProductUseCase {
     func products() -> Observable<[Product]> {

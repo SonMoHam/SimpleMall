@@ -9,15 +9,34 @@ import Foundation
 import RxSwift
 
 /// Network - BannerUseCase 구현체
-final class NetBannerUseCase { }
-
-/* TODO: 채택, 준수 구현
-extension NetBannerUseCase: BannerUseCase {
-    func banners() -> Observable<[Banner]> {
-        <#code#>
+final class NetBannerUseCase {
+    private let networkService: NetworkService
+    
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
 }
-*/
+
+
+extension NetBannerUseCase: BannerUseCase {
+    func banners() -> Observable<[Banner]> {
+        let endpoint = HomeEndpoints.getHome()
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.networkService.request(with: endpoint) { result in
+                switch result {
+                case .success(let decodable):
+                    observer.onNext(decodable.banners)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    // TODO: error 보내기 위해 타입 수정??
+                    observer.onNext([])
+                }
+            }
+            return Disposables.create()
+        }
+    }
+}
+
 
 final class StubBannerUseCase: BannerUseCase {
     func banners() -> Observable<[Banner]> {
