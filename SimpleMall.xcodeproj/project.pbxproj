@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124B9472292F942400E12689 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9471292F942400E12689 /* HomeTarget.swift */; };
+		124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */; };
+		124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -26,9 +29,22 @@
 		12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B2292F3F230092E005 /* ProductUseCase.swift */; };
 		12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */; };
 		12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B6292F41380092E005 /* UseCaseProvider.swift */; };
+		12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */; };
+		12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C0292F4B850092E005 /* NetBannerUseCase.swift */; };
+		12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C2292F4C480092E005 /* NetProductUseCase.swift */; };
+		12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */; };
+		12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707CE292F5DEA0092E005 /* Encodable+.swift */; };
+		12F707DD292F67790092E005 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DC292F67790092E005 /* Endpoint.swift */; };
+		12F707DF292F682F0092E005 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DE292F682F0092E005 /* NetworkService.swift */; };
+		12F707E2292F68EC0092E005 /* HomeEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E1292F68EC0092E005 /* HomeEndpoints.swift */; };
+		12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */; };
+		12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E7292F6D240092E005 /* AFNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124B9471292F942400E12689 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
+		124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUseCaseProvider.swift; sourceTree = "<group>"; };
+		124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsResponseDTO.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +57,16 @@
 		12F707B2292F3F230092E005 /* ProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUseCase.swift; sourceTree = "<group>"; };
 		12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		12F707B6292F41380092E005 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDFavoriteProductUseCase.swift; sourceTree = "<group>"; };
+		12F707C0292F4B850092E005 /* NetBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetBannerUseCase.swift; sourceTree = "<group>"; };
+		12F707C2292F4C480092E005 /* NetProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProductUseCase.swift; sourceTree = "<group>"; };
+		12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUseCaseProvider.swift; sourceTree = "<group>"; };
+		12F707CE292F5DEA0092E005 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
+		12F707DC292F67790092E005 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		12F707DE292F682F0092E005 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		12F707E1292F68EC0092E005 /* HomeEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoints.swift; sourceTree = "<group>"; };
+		12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseDTO.swift; sourceTree = "<group>"; };
+		12F707E7292F6D240092E005 /* AFNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +89,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124B946C292F93C100E12689 /* CustomLayer */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E9292F70330092E005 /* Infrastructure */,
+				12F707E0292F68CC0092E005 /* Endpoints */,
+				12F707EA292F70730092E005 /* Implements */,
+			);
+			path = CustomLayer;
+			sourceTree = "<group>";
+		};
+		124B946F292F93F800E12689 /* MoyaLayer */ = {
+			isa = PBXGroup;
+			children = (
+				124B9470292F940A00E12689 /* Target */,
+			);
+			path = MoyaLayer;
+			sourceTree = "<group>";
+		};
+		124B9470292F940A00E12689 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				124B9471292F942400E12689 /* HomeTarget.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		126D6FBB292F306D004FAB0D = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +145,8 @@
 			children = (
 				126D6FDC292F30F2004FAB0D /* App */,
 				12F707A9292F36DB0092E005 /* Domain */,
+				12F707B8292F44350092E005 /* Data */,
+				12F707CD292F5DD50092E005 /* Util */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -143,6 +197,119 @@
 				12F707B6292F41380092E005 /* UseCaseProvider.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		12F707B8292F44350092E005 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				12F707C4292F54AB0092E005 /* UseCaseProvider */,
+				12F707BA292F48580092E005 /* Persistent */,
+				12F707B9292F46070092E005 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		12F707B9292F46070092E005 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E3292F69DA0092E005 /* DataMapping */,
+				124B946C292F93C100E12689 /* CustomLayer */,
+				124B946F292F93F800E12689 /* MoyaLayer */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		12F707BA292F48580092E005 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BB292F48C20092E005 /* UserDefaults */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		12F707BB292F48C20092E005 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BD292F49180092E005 /* UseCases */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		12F707BC292F48E00092E005 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
+				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
+				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		12F707BD292F49180092E005 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		12F707C4292F54AB0092E005 /* UseCaseProvider */ = {
+			isa = PBXGroup;
+			children = (
+				12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */,
+			);
+			path = UseCaseProvider;
+			sourceTree = "<group>";
+		};
+		12F707CD292F5DD50092E005 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				12F707CE292F5DEA0092E005 /* Encodable+.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		12F707E0292F68CC0092E005 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E1292F68EC0092E005 /* HomeEndpoints.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		12F707E3292F69DA0092E005 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E4292F69ED0092E005 /* HomeResponseDTO.swift */,
+				124B9475292FA58C00E12689 /* GoodsResponseDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		12F707E6292F6D080092E005 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				12F707E7292F6D240092E005 /* AFNetworkService.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		12F707E9292F70330092E005 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				12F707DC292F67790092E005 /* Endpoint.swift */,
+				12F707DE292F682F0092E005 /* NetworkService.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		12F707EA292F70730092E005 /* Implements */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BC292F48E00092E005 /* UseCases */,
+				12F707E6292F6D080092E005 /* Alamofire */,
+			);
+			path = Implements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,14 +400,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F707DD292F67790092E005 /* Endpoint.swift in Sources */,
+				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
+				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
+				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
+				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
+				124B9472292F942400E12689 /* HomeTarget.swift in Sources */,
+				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
+				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
+				12F707DF292F682F0092E005 /* NetworkService.swift in Sources */,
+				12F707E2292F68EC0092E005 /* HomeEndpoints.swift in Sources */,
 				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
+				12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
+				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
+				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
