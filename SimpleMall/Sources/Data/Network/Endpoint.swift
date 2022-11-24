@@ -14,15 +14,27 @@ public enum HTTPMethodType: String {
 }
 
 public final class Endpoint<R>: Requestable {
+    
+    
     public typealias Response = R
     
     public let baseURL: String
     public let path: String
     public let method: HTTPMethodType
     public let headerParameters: [String : String]
-    public let queryParameters: [String : Any]
-    public let queryParametersEncodable: Encodable?
-    public let bodyParameters: [String : Any]
+    
+
+    public var queryParameters: [String: Any] {
+        _queryParametersEncodable?.toDictionary() ?? self._queryParameters
+    }
+    
+    public var bodyParameters: [String : Any] {
+        self._bodyParameters
+    }
+    
+    private let _queryParameters: [String : Any]
+    private let _queryParametersEncodable: Encodable?
+    private let _bodyParameters: [String : Any]
     
     init(
         baseURL: String,
@@ -39,9 +51,9 @@ public final class Endpoint<R>: Requestable {
         self.path = path.first == "/" ? path : "/\(path)"
         self.method = method
         self.headerParameters = headerParameters
-        self.queryParameters = queryParameters
-        self.queryParametersEncodable = queryParametersEncodable
-        self.bodyParameters = bodyParameters
+        self._queryParameters = queryParameters
+        self._queryParametersEncodable = queryParametersEncodable
+        self._bodyParameters = bodyParameters
     }
 }
 
@@ -53,7 +65,6 @@ public protocol Requestable {
     var method: HTTPMethodType { get }
     var headerParameters: [String: String] { get }
     var queryParameters: [String: Any] { get }
-    var queryParametersEncodable: Encodable? { get }
     var bodyParameters: [String: Any] { get }
     
     // encodable ...
@@ -69,7 +80,7 @@ extension Requestable {
         }
         var urlQueryItem: [URLQueryItem] = []
         
-        let queryParameters = queryParametersEncodable?.toDictionary() ?? self.queryParameters
+        let queryParameters = queryParameters
         queryParameters.forEach {
             urlQueryItem.append(.init(name: $0.key, value: "\($0.value)"))
         }
