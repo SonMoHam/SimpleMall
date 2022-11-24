@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		124B9472292F942400E12689 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9471292F942400E12689 /* HomeTarget.swift */; };
+		124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		124B9471292F942400E12689 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
+		124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetUseCaseProvider.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
 				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
+				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				124B9472292F942400E12689 /* HomeTarget.swift in Sources */,
 				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
+				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
 				12F707DF292F682F0092E005 /* NetworkService.swift in Sources */,
