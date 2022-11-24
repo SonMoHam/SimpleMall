@@ -56,15 +56,39 @@
 		126D6FC6292F306D004FAB0D /* SimpleMall */ = {
 			isa = PBXGroup;
 			children = (
-				126D6FC7292F306D004FAB0D /* AppDelegate.swift */,
-				126D6FC9292F306D004FAB0D /* SceneDelegate.swift */,
+				126D6FDB292F30EB004FAB0D /* Sources */,
+				126D6FDD292F30F8004FAB0D /* Resources */,
 				126D6FCB292F306D004FAB0D /* ViewController.swift */,
 				126D6FCD292F306D004FAB0D /* Main.storyboard */,
+			);
+			path = SimpleMall;
+			sourceTree = "<group>";
+		};
+		126D6FDB292F30EB004FAB0D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				126D6FDC292F30F2004FAB0D /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		126D6FDC292F30F2004FAB0D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				126D6FC7292F306D004FAB0D /* AppDelegate.swift */,
+				126D6FC9292F306D004FAB0D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		126D6FDD292F30F8004FAB0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				126D6FD0292F306E004FAB0D /* Assets.xcassets */,
 				126D6FD2292F306E004FAB0D /* LaunchScreen.storyboard */,
 				126D6FD5292F306E004FAB0D /* Info.plist */,
 			);
-			path = SimpleMall;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,12 +313,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8G2M9BCKK9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SimpleMall/Info.plist;
+				INFOPLIST_FILE = SimpleMall/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,12 +342,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8G2M9BCKK9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SimpleMall/Info.plist;
+				INFOPLIST_FILE = SimpleMall/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
