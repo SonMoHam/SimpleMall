@@ -27,6 +27,8 @@
 		12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */; };
 		12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B6292F41380092E005 /* UseCaseProvider.swift */; };
 		12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */; };
+		12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C0292F4B850092E005 /* NetBannerUseCase.swift */; };
+		12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C2292F4C480092E005 /* NetProductUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		12F707B6292F41380092E005 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDFavoriteProductUseCase.swift; sourceTree = "<group>"; };
+		12F707C0292F4B850092E005 /* NetBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetBannerUseCase.swift; sourceTree = "<group>"; };
+		12F707C2292F4C480092E005 /* NetProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProductUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,8 @@
 		12F707BC292F48E00092E005 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
+				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
+				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
+				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
