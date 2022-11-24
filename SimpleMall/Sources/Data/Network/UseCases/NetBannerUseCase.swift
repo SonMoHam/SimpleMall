@@ -18,3 +18,18 @@ extension NetBannerUseCase: BannerUseCase {
     }
 }
 */
+
+final class StubBannerUseCase: BannerUseCase {
+    func banners() -> Observable<[Banner]> {
+        let dummyBanners: [Banner] = [
+            Banner(id: 1,imageURL: "list.bullet"),
+            Banner(id: 2, imageURL: "person.fill")
+        ]
+        return Observable.create { observer -> Disposable in
+            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+                observer.onNext(dummyBanners)
+            }
+            return Disposables.create()
+        }
+    }
+}
