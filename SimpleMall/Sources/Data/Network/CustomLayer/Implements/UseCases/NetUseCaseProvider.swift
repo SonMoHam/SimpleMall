@@ -10,8 +10,8 @@ import Foundation
 final class NetUseCaseProvider {
     private let networkService: NetworkService
     
-    init(networkService: NetworkService) {
-        self.networkService = networkService
+    init() {
+        self.networkService = AFNetworkService()
     }
 }
 
