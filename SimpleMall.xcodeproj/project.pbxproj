@@ -180,12 +180,10 @@
 		12F707B9292F46070092E005 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				12F707DC292F67790092E005 /* Endpoint.swift */,
-				12F707DE292F682F0092E005 /* NetworkService.swift */,
+				12F707E9292F70330092E005 /* Infrastructure */,
 				12F707E3292F69DA0092E005 /* DataMapping */,
 				12F707E0292F68CC0092E005 /* Endpoints */,
-				12F707BC292F48E00092E005 /* UseCases */,
-				12F707E6292F6D080092E005 /* Alamofire */,
+				12F707EA292F70730092E005 /* Implements */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -261,6 +259,24 @@
 				12F707E7292F6D240092E005 /* AFNetworkService.swift */,
 			);
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		12F707E9292F70330092E005 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				12F707DC292F67790092E005 /* Endpoint.swift */,
+				12F707DE292F682F0092E005 /* NetworkService.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		12F707EA292F70730092E005 /* Implements */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BC292F48E00092E005 /* UseCases */,
+				12F707E6292F6D080092E005 /* Alamofire */,
+			);
+			path = Implements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
