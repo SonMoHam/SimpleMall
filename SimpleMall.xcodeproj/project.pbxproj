@@ -22,6 +22,7 @@
 		126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF3292F32A2004FAB0D /* SDWebImage */; };
 		12F707AC292F370F0092E005 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AB292F370F0092E005 /* Product.swift */; };
 		12F707AE292F38500092E005 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AD292F38500092E005 /* Banner.swift */; };
+		12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B0292F3EC60092E005 /* BannerUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		126D6FD5292F306E004FAB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12F707AB292F370F0092E005 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		12F707AD292F38500092E005 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		12F707B0292F3EC60092E005 /* BannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				12F707AA292F36FD0092E005 /* Entities */,
+				12F707AF292F3EAE0092E005 /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				12F707AD292F38500092E005 /* Banner.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		12F707AF292F3EAE0092E005 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				12F707B0292F3EC60092E005 /* BannerUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				12F707AE292F38500092E005 /* Banner.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
+				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
