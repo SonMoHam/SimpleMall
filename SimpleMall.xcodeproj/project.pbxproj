@@ -32,6 +32,7 @@
 		12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */; };
 		12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707CE292F5DEA0092E005 /* Encodable+.swift */; };
 		12F707DD292F67790092E005 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DC292F67790092E005 /* Endpoint.swift */; };
+		12F707DF292F682F0092E005 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707DE292F682F0092E005 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUseCaseProvider.swift; sourceTree = "<group>"; };
 		12F707CE292F5DEA0092E005 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		12F707DC292F67790092E005 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		12F707DE292F682F0092E005 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				12F707BC292F48E00092E005 /* UseCases */,
 				12F707DC292F67790092E005 /* Endpoint.swift */,
+				12F707DE292F682F0092E005 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
+				12F707DF292F682F0092E005 /* NetworkService.swift in Sources */,
 				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
 				12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
