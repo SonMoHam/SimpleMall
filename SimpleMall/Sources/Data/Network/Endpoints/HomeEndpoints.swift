@@ -7,13 +7,16 @@
 
 import Foundation
 
+// TODO: 이동
+let baseURL = "http://d2bab9i9pr8lds.cloudfront.net/api"
+
 struct HomeEndpoints {
     static func getHome() -> Endpoint<HomeResponseDTO> {
-        return Endpoint(baseURL: "", path: "/home", method: .get)
+        return Endpoint(baseURL: baseURL, path: "/home", method: .get)
     }
     
     static func getGoods(lastId: Int) -> Endpoint<[Product]> {
-        return Endpoint(baseURL: "", path: "/home/goods", method: .get)
+        return Endpoint(baseURL: baseURL, path: "/home/goods", method: .get)
     }
     // getProducts()
 }
