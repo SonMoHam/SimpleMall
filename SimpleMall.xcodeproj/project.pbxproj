@@ -11,6 +11,15 @@
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
 		126D6FD4292F306E004FAB0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD2292F306E004FAB0D /* LaunchScreen.storyboard */; };
+		126D6FE0292F31E1004FAB0D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FDF292F31E1004FAB0D /* Moya */; };
+		126D6FE2292F31E1004FAB0D /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FE1292F31E1004FAB0D /* ReactiveMoya */; };
+		126D6FE4292F31E1004FAB0D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FE3292F31E1004FAB0D /* RxMoya */; };
+		126D6FE7292F3216004FAB0D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FE6292F3216004FAB0D /* RxCocoa */; };
+		126D6FE9292F3216004FAB0D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FE8292F3216004FAB0D /* RxRelay */; };
+		126D6FEB292F3216004FAB0D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FEA292F3216004FAB0D /* RxSwift */; };
+		126D6FEE292F3238004FAB0D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FED292F3238004FAB0D /* SnapKit */; };
+		126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF0292F3261004FAB0D /* ReactorKit */; };
+		126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF3292F32A2004FAB0D /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +36,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				126D6FEB292F3216004FAB0D /* RxSwift in Frameworks */,
+				126D6FE9292F3216004FAB0D /* RxRelay in Frameworks */,
+				126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */,
+				126D6FE4292F31E1004FAB0D /* RxMoya in Frameworks */,
+				126D6FEE292F3238004FAB0D /* SnapKit in Frameworks */,
+				126D6FE0292F31E1004FAB0D /* Moya in Frameworks */,
+				126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */,
+				126D6FE7292F3216004FAB0D /* RxCocoa in Frameworks */,
+				126D6FE2292F31E1004FAB0D /* ReactiveMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +119,17 @@
 			dependencies = (
 			);
 			name = SimpleMall;
+			packageProductDependencies = (
+				126D6FDF292F31E1004FAB0D /* Moya */,
+				126D6FE1292F31E1004FAB0D /* ReactiveMoya */,
+				126D6FE3292F31E1004FAB0D /* RxMoya */,
+				126D6FE6292F3216004FAB0D /* RxCocoa */,
+				126D6FE8292F3216004FAB0D /* RxRelay */,
+				126D6FEA292F3216004FAB0D /* RxSwift */,
+				126D6FED292F3238004FAB0D /* SnapKit */,
+				126D6FF0292F3261004FAB0D /* ReactorKit */,
+				126D6FF3292F32A2004FAB0D /* SDWebImage */,
+			);
 			productName = SimpleMall;
 			productReference = 126D6FC4292F306D004FAB0D /* SimpleMall.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +158,13 @@
 				Base,
 			);
 			mainGroup = 126D6FBB292F306D004FAB0D;
+			packageReferences = (
+				126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */,
+				126D6FE5292F3216004FAB0D /* XCRemoteSwiftPackageReference "RxSwift" */,
+				126D6FEC292F3238004FAB0D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				126D6FEF292F3261004FAB0D /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				126D6FF2292F32A2004FAB0D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 126D6FC5292F306D004FAB0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -366,6 +402,97 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+		126D6FE5292F3216004FAB0D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+		126D6FEC292F3238004FAB0D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		126D6FEF292F3261004FAB0D /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		126D6FF2292F32A2004FAB0D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		126D6FDF292F31E1004FAB0D /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		126D6FE1292F31E1004FAB0D /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		126D6FE3292F31E1004FAB0D /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		126D6FE6292F3216004FAB0D /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FE5292F3216004FAB0D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		126D6FE8292F3216004FAB0D /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FE5292F3216004FAB0D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		126D6FEA292F3216004FAB0D /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FE5292F3216004FAB0D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		126D6FED292F3238004FAB0D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FEC292F3238004FAB0D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		126D6FF0292F3261004FAB0D /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FEF292F3261004FAB0D /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		126D6FF3292F32A2004FAB0D /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D6FF2292F32A2004FAB0D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 126D6FBC292F306D004FAB0D /* Project object */;
 }
