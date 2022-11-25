@@ -47,6 +47,7 @@
 		12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707E7292F6D240092E005 /* AFNetworkService.swift */; };
 		12F707ED29306BD80092E005 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707EC29306BD80092E005 /* BannerCell.swift */; };
 		12F707EF29306CA20092E005 /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707EE29306CA20092E005 /* UICollectionViewCell+.swift */; };
+		12F707F129306DE40092E005 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707F029306DE40092E005 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		12F707E7292F6D240092E005 /* AFNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFNetworkService.swift; sourceTree = "<group>"; };
 		12F707EC29306BD80092E005 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		12F707EE29306CA20092E005 /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
+		12F707F029306DE40092E005 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				12F707EC29306BD80092E005 /* BannerCell.swift */,
+				12F707F029306DE40092E005 /* ProductCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 				12F707EF29306CA20092E005 /* UICollectionViewCell+.swift in Sources */,
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
+				12F707F129306DE40092E005 /* ProductCell.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,
 				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
 			);
