@@ -46,13 +46,15 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
-    
+    private let services: UseCaseProdiver
     private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable>!
-
+    private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
+    private var disposeBag = DisposeBag()
     
     // MARK: Initializing
     
-    init() {
+    init(services: UseCaseProdiver) {
+        self.services = services
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -91,6 +93,23 @@ final class HomeViewController: UIViewController {
                }
                 return UICollectionViewCell()
             })
+        
+        services.makeBannerUseCase()
+            .banners()
+            .bind { [weak self] in
+                self?.snapshot.appendSections([.banner])
+                self?.snapshot.appendItems($0)
+                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
+        
+        services.makeProductUseCase()
+            .products()
+            .bind { [weak self] in
+                self?.snapshot.appendSections([.goods])
+                self?.snapshot.appendItems($0)
+                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
+
     }
     
     // MARK: Methods
