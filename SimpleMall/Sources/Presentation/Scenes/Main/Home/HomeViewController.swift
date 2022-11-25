@@ -93,20 +93,21 @@ final class HomeViewController: UIViewController {
                }
                 return UICollectionViewCell()
             })
+        snapshot.appendSections([.banner, .goods])
+        dataSource.apply(snapshot)
+//        snapshot.moveSection(.goods, afterSection: .banner)
         
         services.makeBannerUseCase()
             .banners()
             .bind { [weak self] in
-                self?.snapshot.appendSections([.banner])
-                self?.snapshot.appendItems($0)
+                self?.snapshot.appendItems($0, toSection: .banner)
                 self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
             }.disposed(by: disposeBag)
         
         services.makeProductUseCase()
             .products()
             .bind { [weak self] in
-                self?.snapshot.appendSections([.goods])
-                self?.snapshot.appendItems($0)
+                self?.snapshot.appendItems($0, toSection: .goods)
                 self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
             }.disposed(by: disposeBag)
 
