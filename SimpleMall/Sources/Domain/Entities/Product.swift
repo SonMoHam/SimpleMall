@@ -8,7 +8,7 @@
 import Foundation
 
 /// goods
-public struct Product: Codable {
+public struct Product: Codable, Hashable {
     /// 상품 ID
     let id: Int
     /// 상품 이름

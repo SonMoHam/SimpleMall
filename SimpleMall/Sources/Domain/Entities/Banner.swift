@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Banner: Codable {
+public struct Banner: Codable, Hashable {
     /// 배너 ID
     let id: Int
 
