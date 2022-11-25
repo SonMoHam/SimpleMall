@@ -32,22 +32,6 @@ final class ProductCell: UICollectionViewCell {
         static let isNewWidth: CGFloat = 40
     }
     
-    private struct Font {
-        static let title = UIFont.boldSystemFont(ofSize: 16)
-        static let medium = UIFont.systemFont(ofSize: 14)
-        static let small = UIFont.systemFont(ofSize: 12)
-    }
-    
-    private struct Color {
-        static let textPrimary = UIColor.black
-        static let textSecondary = UIColor(red: 119/255, green: 119/255, blue: 119/255, alpha: 1)
-        static let customPink = UIColor(red: 236/255, green: 94/255, blue: 101/255, alpha: 1)
-    }
-    
-    private struct Image {
-        static let heart = UIImage(systemName: "heart")
-        static let heartFill = UIImage(systemName: "heart.fill")
-    }
     
     // MARK: Properties
     
@@ -68,8 +52,8 @@ final class ProductCell: UICollectionViewCell {
     
     var isFavorite: Bool = false {
         didSet {
-            let image = isFavorite ? Image.heartFill : Image.heart
-            let tint = isFavorite ? Color.customPink : .white
+            let image = isFavorite ? AppStyles.Image.heartFill : AppStyles.Image.heart
+            let tint = isFavorite ? AppStyles.Color.customPink : .white
             favoriteButton.tintColor = tint
             favoriteButton.setImage(image, for: .normal)
         }
@@ -84,15 +68,15 @@ final class ProductCell: UICollectionViewCell {
     
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = Font.title
+        label.font = AppStyles.Font.title
         return label
     }()
     
     let descriptionLabel: UILabel = {
        let label = UILabel()
-        label.font = Font.medium
+        label.font = AppStyles.Font.medium
         label.numberOfLines = 0
-        label.textColor = Color.textSecondary
+        label.textColor = AppStyles.Color.textSecondary
         return label
     }()
     
@@ -106,18 +90,18 @@ final class ProductCell: UICollectionViewCell {
     
     let sellCountLabel: UILabel = {
        let label = UILabel()
-        label.font = Font.small
-        label.textColor = Color.textSecondary
+        label.font = AppStyles.Font.small
+        label.textColor = AppStyles.Color.textSecondary
         return label
     }()
     
     let isNewLabel: UILabel = {
        let label = UILabel()
         label.text = "NEW"
-        label.font = Font.small
-        label.textColor = Color.textSecondary
+        label.font = AppStyles.Font.small
+        label.textColor = AppStyles.Color.textSecondary
         label.layer.borderWidth = Metric.isNewBorderWidth
-        label.layer.borderColor = Color.textSecondary.cgColor
+        label.layer.borderColor = AppStyles.Color.textSecondary.cgColor
         label.textAlignment = .center
         return label
     }()
@@ -210,7 +194,7 @@ final class ProductCell: UICollectionViewCell {
         if discount > 0 {
             let priceText = "\(discountString) \(priceString)"
             priceLabel.attributedText = NSMutableAttributedString(string: priceText)
-                .color(Color.customPink, string: discountString)
+                .color(AppStyles.Color.customPink, string: discountString)
         } else {
             priceLabel.text = priceString
         }
