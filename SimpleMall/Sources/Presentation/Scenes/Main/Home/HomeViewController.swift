@@ -68,7 +68,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .brown
+        
         self.view.addSubview(collectionView)
         setupConstraints()
 
@@ -136,7 +136,7 @@ final class HomeViewController: UIViewController {
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide).inset(30)
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
