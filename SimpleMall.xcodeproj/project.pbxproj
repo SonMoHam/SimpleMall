@@ -30,6 +30,7 @@
 		126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF0292F3261004FAB0D /* ReactorKit */; };
 		126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 126D6FF3292F32A2004FAB0D /* SDWebImage */; };
 		128C9A47293128130093934E /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C9A46293128130093934E /* NSMutableAttributedString+.swift */; };
+		128C9A4D293137C00093934E /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C9A4C293137C00093934E /* AppStyles.swift */; };
 		12F707AC292F370F0092E005 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AB292F370F0092E005 /* Product.swift */; };
 		12F707AE292F38500092E005 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AD292F38500092E005 /* Banner.swift */; };
 		12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B0292F3EC60092E005 /* BannerUseCase.swift */; };
@@ -68,6 +69,7 @@
 		126D6FD3292F306E004FAB0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126D6FD5292F306E004FAB0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		128C9A46293128130093934E /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
+		128C9A4C293137C00093934E /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 		12F707AB292F370F0092E005 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		12F707AD292F38500092E005 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		12F707B0292F3EC60092E005 /* BannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerUseCase.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				12F707A9292F36DB0092E005 /* Domain */,
 				12F707B8292F44350092E005 /* Data */,
 				12F707CD292F5DD50092E005 /* Util */,
+				128C9A4B2931377C0093934E /* Common */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -235,6 +238,14 @@
 				126D6FD5292F306E004FAB0D /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		128C9A4B2931377C0093934E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				128C9A4C293137C00093934E /* AppStyles.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		12F707A9292F36DB0092E005 /* Domain */ = {
@@ -493,6 +504,7 @@
 				124B9472292F942400E12689 /* HomeTarget.swift in Sources */,
 				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
+				128C9A4D293137C00093934E /* AppStyles.swift in Sources */,
 				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
