@@ -28,9 +28,10 @@ final class BannerCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
+        let imageHeight = self.bounds.width * 2 / 3
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.height.equalTo(200)
+            make.height.equalTo(imageHeight)
         }
     }
     
