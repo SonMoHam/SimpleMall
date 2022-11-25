@@ -198,6 +198,9 @@ final class ProductCell: UICollectionViewCell {
         nf.numberStyle = .decimal
         disposeBag = DisposeBag()
         imageView.sd_setImage(with: URL(string: product.imageURL))
+        
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.systemGray6.cgColor
 
         let discount = round((1.0 - Double(product.price) / Double(product.actualPrice)) * 100)
         let discountString = "\(Int(discount))%"
