@@ -194,22 +194,33 @@ final class ProductCell: UICollectionViewCell {
     }
     
     func configure(_ product: Product, isFavorite: Bool = false) {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
         disposeBag = DisposeBag()
         imageView.sd_setImage(with: URL(string: product.imageURL))
-        // TODO: 원 단위 구분자 추가
+
         let discount = round((1.0 - Double(product.price) / Double(product.actualPrice)) * 100)
         let discountString = "\(Int(discount))%"
-
+        
+        let priceString = nf.string(from: NSNumber(value: product.price)) ?? "\(product.price)"
+        
         if discount > 0 {
-            let priceText = "\(discountString) \(product.price)"
+            let priceText = "\(discountString) \(priceString)"
             priceLabel.attributedText = NSMutableAttributedString(string: priceText)
                 .color(Color.customPink, string: discountString)
         } else {
-            priceLabel.text = "\(product.price)"
+            priceLabel.text = priceString
         }
         descriptionLabel.text = product.name
         isNewLabel.isHidden = !product.isNew
-        sellCountLabel.text = "\(product.sellCount)개 구매중"
+        
+        if product.sellCount >= 10 {
+            let sellCountString = nf.string(
+                from: NSNumber(value: product.sellCount)
+            ) ?? "\(product.sellCount)"
+            sellCountLabel.text = "\(sellCountString)개 구매중"
+        }
+
         self.isFavorite = isFavorite
         self._productID = product.id
         favoriteButton.rx
