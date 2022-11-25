@@ -113,6 +113,22 @@ final class HomeViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        services.makeBannerUseCase()
+            .banners()
+            .bind { [weak self] _ in
+                let items = self?.snapshot.itemIdentifiers(inSection: .banner) ?? []
+                self?.snapshot.deleteItems(items)
+                self?.snapshot.appendItems(
+                    [Banner(id: 3, imageURL: ""), Banner(id: 4, imageURL: "") ],
+                    toSection: .banner)
+                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
+    }
+    
+    
     // MARK: Methods
     
     private func setupConstraints() {
