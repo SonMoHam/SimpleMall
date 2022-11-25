@@ -196,9 +196,17 @@ final class ProductCell: UICollectionViewCell {
     func configure(_ product: Product, isFavorite: Bool = false) {
         disposeBag = DisposeBag()
         imageView.sd_setImage(with: URL(string: product.imageURL))
-        // TODO: 원 단위 구분자 추가, 할인율 색상 변경
-        let discount = Int(round((1.0 - Double(product.price) / Double(product.actualPrice)) * 100))
-        priceLabel.text = product.price == product.actualPrice ? "\(product.price)" : "\(discount)% \(product.price)"
+        // TODO: 원 단위 구분자 추가
+        let discount = round((1.0 - Double(product.price) / Double(product.actualPrice)) * 100)
+        let discountString = "\(Int(discount))%"
+
+        if discount > 0 {
+            let priceText = "\(discountString) \(product.price)"
+            priceLabel.attributedText = NSMutableAttributedString(string: priceText)
+                .color(Color.customPink, string: discountString)
+        } else {
+            priceLabel.text = "\(product.price)"
+        }
         descriptionLabel.text = product.name
         isNewLabel.isHidden = !product.isNew
         sellCountLabel.text = "\(product.sellCount)개 구매중"
