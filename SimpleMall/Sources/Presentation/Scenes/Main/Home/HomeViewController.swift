@@ -47,6 +47,9 @@ final class HomeViewController: UIViewController {
     }()
     
     
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable>!
+
+    
     // MARK: Initializing
     
     init() {
@@ -66,6 +69,28 @@ final class HomeViewController: UIViewController {
         self.view.addSubview(collectionView)
         setupConstraints()
 
+        
+        dataSource = UICollectionViewDiffableDataSource(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, element in
+                if let _ = element as? Banner,
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: BannerCell.reuseIdentifier,
+                        for: indexPath
+                    ) as? BannerCell {
+                    return cell
+                }
+                
+                if let product = element as? Product,
+                   let cell = collectionView.dequeueReusableCell(
+                       withReuseIdentifier: ProductCell.reuseIdentifier,
+                       for: indexPath
+                   ) as? ProductCell {
+                    cell.isNewLabel.text = product.name
+                   return cell
+               }
+                return UICollectionViewCell()
+            })
     }
     
     // MARK: Methods
