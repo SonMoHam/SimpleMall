@@ -36,7 +36,7 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: collectionViewLayout())
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .white
         collectionView.register(
             BannerCell.self,
             forCellWithReuseIdentifier: BannerCell.reuseIdentifier)
@@ -75,7 +75,7 @@ final class HomeViewController: UIViewController {
         
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
-            cellProvider: { collectionView, indexPath, element in
+            cellProvider: { [weak self] collectionView, indexPath, element in
                 if let banner = element as? Banner,
                     let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: BannerCell.reuseIdentifier,
@@ -90,7 +90,8 @@ final class HomeViewController: UIViewController {
                        withReuseIdentifier: ProductCell.reuseIdentifier,
                        for: indexPath
                    ) as? ProductCell {
-                    cell.isNewLabel.text = product.name
+                    cell.configure(product)
+                    cell.delegate = self
                    return cell
                }
                 return UICollectionViewCell()
@@ -163,5 +164,13 @@ final class HomeViewController: UIViewController {
             return layoutSection
         }
         return layout
+    }
+}
+
+// MARK: - ProductCellDelegate
+
+extension HomeViewController: ProductCellDelegate {
+    func favoriteButtonDidTapped(_ isFavorite: Bool, id: Int) {
+        print("isFavorite: \(isFavorite) id: \(id)")
     }
 }
