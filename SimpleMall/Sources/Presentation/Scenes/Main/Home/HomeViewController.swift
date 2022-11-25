@@ -8,7 +8,36 @@
 import Foundation
 import UIKit
 
+import SnapKit
+import RxSwift
+
 final class HomeViewController: UIViewController {
+    
+    // MARK: Constants
+    
+    private enum CollectionViewSection: Int {
+        case banner
+        case goods
+        
+        var columnCount: Int { return 1 }
+        
+        var orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior {
+            switch self {
+            case .banner: return .groupPagingCentered
+            case .goods: return .none
+            }
+        }
+    }
+    
+    // MARK: Properties
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .gray
+        return collectionView
+    }()
     
     // MARK: Initializing
     
@@ -26,5 +55,15 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
+        self.view.addSubview(collectionView)
+        setupConstraints()
+    }
+    
+    // MARK: Methods
+    
+    private func setupConstraints() {
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(30)
+        }
     }
 }
