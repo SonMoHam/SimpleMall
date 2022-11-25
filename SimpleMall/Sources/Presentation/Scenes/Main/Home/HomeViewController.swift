@@ -56,6 +56,7 @@ final class HomeViewController: UIViewController {
     init(services: UseCaseProdiver) {
         self.services = services
         super.init(nibName: nil, bundle: nil)
+        self.title = "홈"
     }
     
     @available(*, unavailable)
