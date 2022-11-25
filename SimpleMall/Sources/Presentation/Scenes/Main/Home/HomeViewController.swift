@@ -76,11 +76,12 @@ final class HomeViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, element in
-                if let _ = element as? Banner,
+                if let banner = element as? Banner,
                     let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: BannerCell.reuseIdentifier,
                         for: indexPath
                     ) as? BannerCell {
+                    cell.configure(banner)
                     return cell
                 }
                 

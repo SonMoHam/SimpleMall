@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 import SnapKit
+import SDWebImage
 
 final class BannerCell: UICollectionViewCell {
     let imageView: UIImageView = UIImageView()
@@ -31,5 +32,9 @@ final class BannerCell: UICollectionViewCell {
             make.edges.equalToSuperview()
             make.height.equalTo(200)
         }
+    }
+    
+    func configure(_ banner: Banner) {
+        imageView.sd_setImage(with: URL(string: banner.imageURL))
     }
 }
