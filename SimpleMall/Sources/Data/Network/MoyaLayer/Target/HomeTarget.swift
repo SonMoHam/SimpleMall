@@ -12,26 +12,39 @@ enum HomeTarget {
     case home
     case goods(lastId: Int)
 }
-/*
+
 extension HomeTarget: TargetType {
     var baseURL: URL {
-        <#code#>
+        return URL(string: "https://d2bab9i9pr8lds.cloudfront.net/api")!
     }
     
     var path: String {
-        <#code#>
+        switch self {
+        case .home: return "/home"
+        case .goods: return "/home/goods"
+        }
     }
     
     var method: Moya.Method {
-        <#code#>
+        switch self {
+        case .home: return .get
+        case .goods: return .get
+        }
     }
     
     var task: Moya.Task {
-        <#code#>
+        switch self {
+        case .home:
+            return .requestPlain
+        case .goods(let lastId):
+            return .requestParameters(
+                parameters: ["lastId": lastId],
+                encoding: URLEncoding.queryString)
+        }
     }
     
     var headers: [String : String]? {
-        <#code#>
+        return nil
     }
 }
-*/
+
