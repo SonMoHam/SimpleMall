@@ -22,4 +22,11 @@ public class HomeAPI {
             .map(HomeResponseDTO.self)
             .catchAndReturn(HomeResponseDTO(banners: [], goods: []))
     }
+    
+    func goods(lastID: Int) -> Observable<GoodsResponseDTO> {
+        return provider.rx.request(.goods(lastId: lastID))
+            .asObservable()
+            .map(GoodsResponseDTO.self)
+            .catchAndReturn(GoodsResponseDTO(goods: []))
+    }
 }
