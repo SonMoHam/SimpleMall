@@ -24,7 +24,7 @@ public struct Product: Codable, Hashable {
     /// 구매중 갯수
     let sellCount: Int
     
-    let isFavorite: Bool?
+    var isFavorite: Bool?
     
     init(
         id: Int,
@@ -54,7 +54,4 @@ public struct Product: Codable, Hashable {
         case sellCount = "sell_count"
     }
     
-    public static func == (lhs: Product, rhs: Product) -> Bool {
-        return lhs.id == rhs.id // 동일 id라면 같은 Product
-    }
 }
