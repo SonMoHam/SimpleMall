@@ -61,6 +61,8 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private let refreshControl = UIRefreshControl()
+    
     private let services: UseCaseProdiver
     private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable>!
     private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
@@ -87,6 +89,24 @@ final class HomeViewController: UIViewController {
         self.view.addSubview(collectionView)
         setupConstraints()
 
+        
+        collectionView.alwaysBounceVertical = true
+        collectionView.refreshControl = refreshControl
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind { [weak self] _ in
+                self?.services.makeBannerUseCase()
+                    .banners()
+                    .bind { [weak self] _ in
+                        let items = self?.snapshot.itemIdentifiers(inSection: .banner) ?? []
+                        self?.snapshot.deleteItems(items)
+                        self?.snapshot.appendItems(
+                            [[Banner(id: 3, imageURL: ""), Banner(id: 4, imageURL: "")]],
+                            toSection: .banner)
+                        self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
+                        self?.refreshControl.endRefreshing()
+                    }.disposed(by: self!.disposeBag)
+            }.disposed(by: disposeBag)
         
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
