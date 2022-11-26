@@ -183,7 +183,7 @@ final class ProductCell: UICollectionViewCell {
         }
     }
     
-    func configure(_ product: Product, isFavorite: Bool = false) {
+    func configure(_ product: Product) {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
         disposeBag = DisposeBag()
@@ -220,7 +220,7 @@ final class ProductCell: UICollectionViewCell {
             sellCountSpacer.isHidden = !product.isNew
         }
 
-        self.isFavorite = isFavorite
+        self.isFavorite = product.isFavorite ?? false
         self._productID = product.id
         favoriteButton.rx
             .tap
