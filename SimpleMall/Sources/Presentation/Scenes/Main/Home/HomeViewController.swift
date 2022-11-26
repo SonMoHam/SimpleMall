@@ -64,8 +64,8 @@ final class HomeViewController: UIViewController, View {
     
     private let refreshControl = UIRefreshControl()
     
-    private var services: UseCaseProdiver
-    private lazy var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable> = UICollectionViewDiffableDataSource(
+    typealias DataSource = UICollectionViewDiffableDataSource
+    private lazy var dataSource: DataSource<CollectionViewSection, AnyHashable> = DataSource(
         collectionView: collectionView,
         cellProvider: { [weak self] collectionView, indexPath, element in
             if let banner = element as? [Banner],
@@ -87,14 +87,14 @@ final class HomeViewController: UIViewController, View {
                return cell
            }
             return UICollectionViewCell()
-        })
+        }
+    )
     private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
     var disposeBag = DisposeBag()
     
     // MARK: Initializing
     
-    init(reactor: HomeViewReactor, services: UseCaseProdiver) {
-        self.services = services
+    init(reactor: HomeViewReactor) {
         super.init(nibName: nil, bundle: nil)
         snapshot.appendSections([.banner, .goods])
         dataSource.apply(snapshot)
@@ -194,20 +194,6 @@ private extension HomeViewController {
     }
     
     func bindState(_ reactor: HomeViewReactor) {
-        services.makeBannerUseCase()
-            .banners()
-            .bind { [weak self] in
-                self?.snapshot.appendItems([$0], toSection: .banner)
-                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-            }.disposed(by: disposeBag)
-        
-        services.makeProductUseCase()
-            .products()
-            .bind { [weak self] in
-                self?.snapshot.appendItems($0, toSection: .goods)
-                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-            }.disposed(by: disposeBag)
-
         reactor.state.asObservable()
             .bind { [weak self] state in
                 guard let self = self else { return }
