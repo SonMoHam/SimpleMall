@@ -30,6 +30,7 @@ final class HomeViewReactor: Reactor {
     struct State {
         var banners: [Banner]
         var products: [Product]
+        var nextProducts: [Product]
         var isRefresh: Bool = false
     }
     
@@ -47,7 +48,7 @@ final class HomeViewReactor: Reactor {
         self.bannerUseCase = bannerUseCase
         self.productUseCase = productUseCase
         self.favoriteProductUseCase = favoriteProductUseCase
-        self.initialState = State(banners: [], products: [])
+        self.initialState = State(banners: [], products: [], nextProducts: [])
     }
     
     
@@ -87,10 +88,12 @@ final class HomeViewReactor: Reactor {
             newState.products = products
             newState.isRefresh = true
         case .appendNextProducts(let products):
-            let newProducts = state.products + products
-            newState.products = newProducts
+            newState.products += products
+            newState.nextProducts = products
             newState.isRefresh = false
-        case let .updateFavoriteProducts(product, isFavorite):
+            
+        case let .updateFavoriteProducts(product, newValue):
+            // TODO: 찜 구현
             break
         }
         
