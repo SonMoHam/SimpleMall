@@ -207,11 +207,17 @@ private extension HomeViewController {
                     self.snapshot.appendItems(state.products, toSection: .goods)
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                     self.refreshControl.endRefreshing()
-                } else {
-                    if !state.nextProducts.isEmpty {
-                        self.snapshot.appendItems(state.nextProducts, toSection: .goods)
-                        self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                    }
+                }
+            }.disposed(by: disposeBag)
+        
+        reactor.state.asObservable()
+            .map { $0.nextProducts }
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .bind { owner, nextProducts in
+                if !nextProducts.isEmpty {
+                    owner.snapshot.appendItems(nextProducts, toSection: .goods)
+                    owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
                 }
             }.disposed(by: disposeBag)
     }
