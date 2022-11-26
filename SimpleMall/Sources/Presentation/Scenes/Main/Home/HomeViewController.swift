@@ -101,23 +101,43 @@ final class HomeViewController: UIViewController {
                 
                 if maximumOffset < currentOffset {
                     // TODO: Action load next page
-                    print("bottom scroll")
+                    
+                    let id = (self.snapshot
+                        .itemIdentifiers(inSection: .goods)
+                        .last as? Product)?.id ?? 0
+                    
+                    self.services.makeProductUseCase()
+                        .products(lastID: id)
+                        .bind { [weak self] in
+                            guard let self = self else { return }
+                            if !$0.isEmpty {
+                                self.snapshot.appendItems($0, toSection: .goods)
+                                self.dataSource.apply(self.snapshot,animatingDifferences: true)
+                            }
+                            
+                        }.disposed(by: self.disposeBag)
                 }
             }.disposed(by: disposeBag)
         
         refreshControl.rx.controlEvent(.valueChanged)
             .bind { [weak self] _ in
-                self?.services.makeBannerUseCase()
-                    .banners()
-                    .bind { [weak self] _ in
-                        let items = self?.snapshot.itemIdentifiers(inSection: .banner) ?? []
-                        self?.snapshot.deleteItems(items)
-                        self?.snapshot.appendItems(
-                            [[Banner(id: 3, imageURL: ""), Banner(id: 4, imageURL: "")]],
-                            toSection: .banner)
-                        self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-                        self?.refreshControl.endRefreshing()
+                print("refresh")
+                self!.services.makeBannerUseCase().banners()
+                    .bind { banners in
+                        print(banners)
                     }.disposed(by: self!.disposeBag)
+                
+                self?.services.makeProductUseCase()
+                    .products()
+                    .bind { newGoods in
+                        let oldGoods = self?.snapshot.itemIdentifiers(inSection: .goods) ?? []
+                        self?.snapshot.deleteItems(oldGoods)
+                        self?.snapshot.appendItems(newGoods, toSection: .goods)
+                        self?.dataSource.apply(self!.snapshot,animatingDifferences: true) {
+                            self?.refreshControl.endRefreshing()
+                        }
+                    }.disposed(by: self!.disposeBag)
+
             }.disposed(by: disposeBag)
         
         dataSource = UICollectionViewDiffableDataSource(
