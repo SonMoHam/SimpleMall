@@ -93,14 +93,17 @@ final class HomeViewReactor: Reactor {
             if let product = currentState.products.filter({ $0.id == goodsID }).first {
                 if isFavorite {
                     saveFavorite(product: product)
-                    return favoriteProductUseCase
-                        .save(product: product)
-                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
+                    return .just(.updateFavoriteProducts(product, isFavorite))
+                    // TODO: UseCase&DataLayer 미구현 시 emit 없어 Mutation이 없음, 구현 후 복구
+//                    favoriteProductUseCase
+//                        .save(product: product)
+//                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
                 } else {
                     deleteFavorite(product: product)
-                    return favoriteProductUseCase
-                        .delete(product: product)
-                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
+                    return .just(.updateFavoriteProducts(product, isFavorite))
+//                    favoriteProductUseCase
+//                        .delete(product: product)
+//                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
                 }
             } else {
                 return .empty()
@@ -122,9 +125,13 @@ final class HomeViewReactor: Reactor {
             newState.isRefresh = false
             
         case let .updateFavoriteProducts(product, newValue):
-            print(product.id, newValue)
-            // TODO: 찜 구현
-            break
+            let newProducts = newState.products.map {
+                var newP = $0
+                newP.isFavorite = (product.id == newP.id) ? newValue : newP.isFavorite
+                return newP
+            }
+            newState.products = newProducts
+            newState.isRefresh = false
         }
         
         return newState
@@ -150,13 +157,15 @@ final class HomeViewReactor: Reactor {
         var newP = product
         newP.isFavorite = true
         var products = fetchFavorite()
-        products.append(newP)
-        updateFavorite(products)
+        if products.filter({ $0.id == newP.id }).isEmpty {
+            products.append(newP)
+            updateFavorite(products)
+        }
     }
     
     private func deleteFavorite(product: Product) {
         let oldProducts = fetchFavorite()
-        let newProducts = oldProducts.filter { $0 != product }
+        let newProducts = oldProducts.filter { $0.id != product.id }
         updateFavorite(newProducts)
     }
 }

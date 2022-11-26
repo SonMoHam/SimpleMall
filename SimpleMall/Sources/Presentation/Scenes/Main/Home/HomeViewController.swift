@@ -207,6 +207,11 @@ private extension HomeViewController {
                     self.snapshot.appendItems(state.products, toSection: .goods)
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                     self.refreshControl.endRefreshing()
+                } else {
+                    let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
+                    self.snapshot.deleteItems(oldGoods)
+                    self.snapshot.appendItems(state.products, toSection: .goods)
+                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
                 }
             }.disposed(by: disposeBag)
         
