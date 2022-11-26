@@ -28,6 +28,20 @@ final class HomeViewController: UIViewController {
             case .goods: return .none
             }
         }
+        
+        var itemHeightDimension: NSCollectionLayoutDimension {
+            switch self {
+            case .banner: return .fractionalHeight(1)
+            case .goods: return .estimated(100)
+            }
+        }
+        
+        var groupHeightDimension: NSCollectionLayoutDimension {
+            switch self {
+            case .banner: return .fractionalWidth(2/3)
+            case .goods: return .estimated(100)
+            }
+        }
     }
     
     // MARK: Properties
@@ -38,8 +52,9 @@ final class HomeViewController: UIViewController {
             collectionViewLayout: collectionViewLayout())
         collectionView.backgroundColor = .white
         collectionView.register(
-            BannerCell.self,
-            forCellWithReuseIdentifier: BannerCell.reuseIdentifier)
+            BannerViewCell.self,
+            forCellWithReuseIdentifier: BannerViewCell.reuseIdentifier)
+
         collectionView.register(
             ProductCell.self,
             forCellWithReuseIdentifier: ProductCell.reuseIdentifier)
@@ -76,11 +91,11 @@ final class HomeViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
             cellProvider: { [weak self] collectionView, indexPath, element in
-                if let banner = element as? Banner,
+                if let banner = element as? [Banner],
                     let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: BannerCell.reuseIdentifier,
+                        withReuseIdentifier: BannerViewCell.reuseIdentifier,
                         for: indexPath
-                    ) as? BannerCell {
+                    ) as? BannerViewCell {
                     cell.configure(banner)
                     return cell
                 }
@@ -103,7 +118,7 @@ final class HomeViewController: UIViewController {
         services.makeBannerUseCase()
             .banners()
             .bind { [weak self] in
-                self?.snapshot.appendItems($0, toSection: .banner)
+                self?.snapshot.appendItems([$0], toSection: .banner)
                 self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
             }.disposed(by: disposeBag)
         
@@ -149,12 +164,12 @@ final class HomeViewController: UIViewController {
 
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),  // group 내 item, width 꽉 채움
-                heightDimension: .estimated(100))   // 동적 높이
+                heightDimension: section.itemHeightDimension)   // 동적 높이
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),  // width 꽉 채움
-                heightDimension: .estimated(100))   // 동적 높이
+                heightDimension: section.groupHeightDimension)   // 동적 높이
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: groupSize,
                 subitem: item,
