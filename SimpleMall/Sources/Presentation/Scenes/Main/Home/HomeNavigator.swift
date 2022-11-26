@@ -18,7 +18,12 @@ class HomeNavigator {
     }
     
     func toHome() {
-        let vc = HomeViewController(services: services)
+        let moyaProvider = MoyaUseCaseProvider()
+        let homeViewReactor = HomeViewReactor(
+            bannerUseCase: moyaProvider.makeBannerUseCase(),
+            productUseCase: moyaProvider.makeProductUseCase(),
+            favoriteProductUseCase: moyaProvider.makeFavoriteProductUseCase())
+        let vc = HomeViewController(reactor: homeViewReactor)
         navigationController.pushViewController(vc, animated: true)
     }
     
