@@ -88,6 +88,8 @@ final class ProductCell: UICollectionViewCell {
         return stackView
     }()
     
+    let sellCountSpacer: UIView = UIView()
+    
     let sellCountLabel: UILabel = {
        let label = UILabel()
         label.font = AppStyles.Font.small
@@ -123,6 +125,7 @@ final class ProductCell: UICollectionViewCell {
         
         sellCountHorizontalContainer.addArrangedSubview(isNewLabel)
         sellCountHorizontalContainer.addArrangedSubview(sellCountLabel)
+        sellCountHorizontalContainer.addArrangedSubview(sellCountSpacer)
         setupConstraints()
     }
     
@@ -171,6 +174,9 @@ final class ProductCell: UICollectionViewCell {
             make.top.equalTo(descriptionLabel.snp.bottom).offset(Metric.sellCountTopMargin)
             make.bottom.left.right.equalToSuperview()
         }
+        sellCountSpacer.snp.makeConstraints { make in
+            make.size.greaterThanOrEqualTo(1)
+        }
         
         isNewLabel.snp.makeConstraints { make in
             make.width.equalTo(Metric.isNewWidth)
@@ -199,13 +205,19 @@ final class ProductCell: UICollectionViewCell {
             priceLabel.text = priceString
         }
         descriptionLabel.text = product.name
-        isNewLabel.isHidden = !product.isNew
         
-        if product.sellCount >= 10 {
+        isNewLabel.isHidden = !product.isNew
+        let sellIsHidden = product.sellCount < 10
+        sellCountLabel.isHidden = sellIsHidden
+        if !sellIsHidden {
             let sellCountString = nf.string(
                 from: NSNumber(value: product.sellCount)
             ) ?? "\(product.sellCount)"
             sellCountLabel.text = "\(sellCountString)개 구매중"
+        } else {
+            // sellCount < 10 && product.isNew == false
+            sellCountHorizontalContainer.isHidden = !product.isNew
+            sellCountSpacer.isHidden = !product.isNew
         }
 
         self.isFavorite = isFavorite
