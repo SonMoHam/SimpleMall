@@ -61,6 +61,8 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
+    private let refreshControl = UIRefreshControl()
+    
     private let services: UseCaseProdiver
     private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable>!
     private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
@@ -87,6 +89,56 @@ final class HomeViewController: UIViewController {
         self.view.addSubview(collectionView)
         setupConstraints()
 
+        
+        collectionView.alwaysBounceVertical = true
+        collectionView.refreshControl = refreshControl
+        
+        collectionView.rx.didScroll
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                let currentOffset = self.collectionView.contentOffset.y
+                let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height
+                
+                if maximumOffset < currentOffset {
+                    // TODO: Action load next page
+                    
+                    let id = (self.snapshot
+                        .itemIdentifiers(inSection: .goods)
+                        .last as? Product)?.id ?? 0
+                    
+                    self.services.makeProductUseCase()
+                        .products(lastID: id)
+                        .bind { [weak self] in
+                            guard let self = self else { return }
+                            if !$0.isEmpty {
+                                self.snapshot.appendItems($0, toSection: .goods)
+                                self.dataSource.apply(self.snapshot,animatingDifferences: true)
+                            }
+                            
+                        }.disposed(by: self.disposeBag)
+                }
+            }.disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind { [weak self] _ in
+                print("refresh")
+                self!.services.makeBannerUseCase().banners()
+                    .bind { banners in
+                        print(banners)
+                    }.disposed(by: self!.disposeBag)
+                
+                self?.services.makeProductUseCase()
+                    .products()
+                    .bind { newGoods in
+                        let oldGoods = self?.snapshot.itemIdentifiers(inSection: .goods) ?? []
+                        self?.snapshot.deleteItems(oldGoods)
+                        self?.snapshot.appendItems(newGoods, toSection: .goods)
+                        self?.dataSource.apply(self!.snapshot,animatingDifferences: true) {
+                            self?.refreshControl.endRefreshing()
+                        }
+                    }.disposed(by: self!.disposeBag)
+
+            }.disposed(by: disposeBag)
         
         dataSource = UICollectionViewDiffableDataSource(
             collectionView: collectionView,
