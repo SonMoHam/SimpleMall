@@ -53,4 +53,8 @@ public struct Product: Codable, Hashable {
         case isNew = "is_new"
         case sellCount = "sell_count"
     }
+    
+    public static func == (lhs: Product, rhs: Product) -> Bool {
+        return lhs.id == rhs.id // 동일 id라면 같은 Product
+    }
 }
