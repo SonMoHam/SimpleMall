@@ -16,6 +16,7 @@
 		124B9488292FAFDE00E12689 /* FavoriteNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9487292FAFDE00E12689 /* FavoriteNavigator.swift */; };
 		124B948A292FB0C400E12689 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B9489292FB0C400E12689 /* AppManager.swift */; };
 		124B948C292FBC3400E12689 /* MainNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124B948B292FBC3400E12689 /* MainNavigator.swift */; };
+		12500AE8293226E3005CD7B2 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12500AE7293226E3005CD7B2 /* UIViewController+Rx.swift */; };
 		1260B71029320B3300BDA2B1 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B70F29320B3300BDA2B1 /* HomeAPI.swift */; };
 		1260B7142932127000BDA2B1 /* MoyaBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B7132932127000BDA2B1 /* MoyaBannerUseCase.swift */; };
 		1260B716293213AC00BDA2B1 /* MoyaProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B715293213AC00BDA2B1 /* MoyaProductUseCase.swift */; };
@@ -68,6 +69,7 @@
 		124B9487292FAFDE00E12689 /* FavoriteNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigator.swift; sourceTree = "<group>"; };
 		124B9489292FB0C400E12689 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		124B948B292FBC3400E12689 /* MainNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigator.swift; sourceTree = "<group>"; };
+		12500AE7293226E3005CD7B2 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		1260B70F29320B3300BDA2B1 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		1260B7132932127000BDA2B1 /* MoyaBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaBannerUseCase.swift; sourceTree = "<group>"; };
 		1260B715293213AC00BDA2B1 /* MoyaProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProductUseCase.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				12F707CE292F5DEA0092E005 /* Encodable+.swift */,
 				12F707EE29306CA20092E005 /* UICollectionViewCell+.swift */,
 				128C9A46293128130093934E /* NSMutableAttributedString+.swift */,
+				12500AE7293226E3005CD7B2 /* UIViewController+Rx.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				128C9A4D293137C00093934E /* AppStyles.swift in Sources */,
+				12500AE8293226E3005CD7B2 /* UIViewController+Rx.swift in Sources */,
 				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
