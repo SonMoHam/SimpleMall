@@ -93,6 +93,18 @@ final class HomeViewController: UIViewController {
         collectionView.alwaysBounceVertical = true
         collectionView.refreshControl = refreshControl
         
+        collectionView.rx.didScroll
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                let currentOffset = self.collectionView.contentOffset.y
+                let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height
+                
+                if maximumOffset < currentOffset {
+                    // TODO: Action load next page
+                    print("bottom scroll")
+                }
+            }.disposed(by: disposeBag)
+        
         refreshControl.rx.controlEvent(.valueChanged)
             .bind { [weak self] _ in
                 self?.services.makeBannerUseCase()
