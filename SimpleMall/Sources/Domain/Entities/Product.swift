@@ -24,11 +24,34 @@ public struct Product: Codable, Hashable {
     /// 구매중 갯수
     let sellCount: Int
     
+    var isFavorite: Bool?
+    
+    init(
+        id: Int,
+        name: String,
+        imageURL: String,
+        actualPrice: Int,
+        price: Int,
+        isNew: Bool,
+        sellCount: Int,
+        isFavorite: Bool? = nil
+    ) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.actualPrice = actualPrice
+        self.price = price
+        self.isNew = isNew
+        self.sellCount = sellCount
+        self.isFavorite = isFavorite
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case id, name, price
+        case id, name, price, isFavorite
         case imageURL = "image"
         case actualPrice = "actual_price"
         case isNew = "is_new"
         case sellCount = "sell_count"
     }
+    
 }

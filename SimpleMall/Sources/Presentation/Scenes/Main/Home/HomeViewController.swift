@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 import SnapKit
+import ReactorKit
 import RxSwift
 import RxCocoa
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, View {
     
     // MARK: Constants
     
@@ -63,17 +64,42 @@ final class HomeViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
-    private let services: UseCaseProdiver
-    private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, AnyHashable>!
+    typealias DataSource = UICollectionViewDiffableDataSource
+    private lazy var dataSource: DataSource<CollectionViewSection, AnyHashable> = DataSource(
+        collectionView: collectionView,
+        cellProvider: { [weak self] collectionView, indexPath, element in
+            if let banner = element as? [Banner],
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: BannerViewCell.reuseIdentifier,
+                    for: indexPath
+                ) as? BannerViewCell {
+                cell.configure(banner)
+                return cell
+            }
+            
+            if let product = element as? Product,
+               let cell = collectionView.dequeueReusableCell(
+                   withReuseIdentifier: ProductCell.reuseIdentifier,
+                   for: indexPath
+               ) as? ProductCell {
+                cell.configure(product)
+                cell.delegate = self
+               return cell
+           }
+            return UICollectionViewCell()
+        }
+    )
     private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
-    private var disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     // MARK: Initializing
     
-    init(services: UseCaseProdiver) {
-        self.services = services
+    init(reactor: HomeViewReactor) {
         super.init(nibName: nil, bundle: nil)
+        snapshot.appendSections([.banner, .goods])
+        dataSource.apply(snapshot)
         self.title = "홈"
+        self.reactor = reactor
     }
     
     @available(*, unavailable)
@@ -88,125 +114,23 @@ final class HomeViewController: UIViewController {
         
         self.view.addSubview(collectionView)
         setupConstraints()
-
         
         collectionView.alwaysBounceVertical = true
         collectionView.refreshControl = refreshControl
-        
-        collectionView.rx.didScroll
-            .bind { [weak self] _ in
-                guard let self = self else { return }
-                let currentOffset = self.collectionView.contentOffset.y
-                let maximumOffset = self.collectionView.contentSize.height - self.collectionView.frame.size.height
-                
-                if maximumOffset < currentOffset {
-                    // TODO: Action load next page
-                    
-                    let id = (self.snapshot
-                        .itemIdentifiers(inSection: .goods)
-                        .last as? Product)?.id ?? 0
-                    
-                    self.services.makeProductUseCase()
-                        .products(lastID: id)
-                        .bind { [weak self] in
-                            guard let self = self else { return }
-                            if !$0.isEmpty {
-                                self.snapshot.appendItems($0, toSection: .goods)
-                                self.dataSource.apply(self.snapshot,animatingDifferences: true)
-                            }
-                            
-                        }.disposed(by: self.disposeBag)
-                }
-            }.disposed(by: disposeBag)
-        
-        refreshControl.rx.controlEvent(.valueChanged)
-            .bind { [weak self] _ in
-                print("refresh")
-                self!.services.makeBannerUseCase().banners()
-                    .bind { banners in
-                        print(banners)
-                    }.disposed(by: self!.disposeBag)
-                
-                self?.services.makeProductUseCase()
-                    .products()
-                    .bind { newGoods in
-                        let oldGoods = self?.snapshot.itemIdentifiers(inSection: .goods) ?? []
-                        self?.snapshot.deleteItems(oldGoods)
-                        self?.snapshot.appendItems(newGoods, toSection: .goods)
-                        self?.dataSource.apply(self!.snapshot,animatingDifferences: true) {
-                            self?.refreshControl.endRefreshing()
-                        }
-                    }.disposed(by: self!.disposeBag)
-
-            }.disposed(by: disposeBag)
-        
-        dataSource = UICollectionViewDiffableDataSource(
-            collectionView: collectionView,
-            cellProvider: { [weak self] collectionView, indexPath, element in
-                if let banner = element as? [Banner],
-                    let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: BannerViewCell.reuseIdentifier,
-                        for: indexPath
-                    ) as? BannerViewCell {
-                    cell.configure(banner)
-                    return cell
-                }
-                
-                if let product = element as? Product,
-                   let cell = collectionView.dequeueReusableCell(
-                       withReuseIdentifier: ProductCell.reuseIdentifier,
-                       for: indexPath
-                   ) as? ProductCell {
-                    cell.configure(product)
-                    cell.delegate = self
-                   return cell
-               }
-                return UICollectionViewCell()
-            })
-        snapshot.appendSections([.banner, .goods])
-        dataSource.apply(snapshot)
-//        snapshot.moveSection(.goods, afterSection: .banner)
-        
-        services.makeBannerUseCase()
-            .banners()
-            .bind { [weak self] in
-                self?.snapshot.appendItems([$0], toSection: .banner)
-                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-            }.disposed(by: disposeBag)
-        
-        services.makeProductUseCase()
-            .products()
-            .bind { [weak self] in
-                self?.snapshot.appendItems($0, toSection: .goods)
-                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-            }.disposed(by: disposeBag)
-
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        services.makeBannerUseCase()
-//            .banners()
-//            .bind { [weak self] _ in
-//                let items = self?.snapshot.itemIdentifiers(inSection: .banner) ?? []
-//                self?.snapshot.deleteItems(items)
-//                self?.snapshot.appendItems(
-//                    [Banner(id: 3, imageURL: ""), Banner(id: 4, imageURL: "") ],
-//                    toSection: .banner)
-//                self?.dataSource.apply(self!.snapshot, animatingDifferences: true)
-//            }.disposed(by: disposeBag)
-    }
-    
     
     // MARK: Methods
+    
+    func bind(reactor: HomeViewReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
     
     private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
@@ -238,6 +162,63 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: ProductCellDelegate {
     func favoriteButtonDidTapped(_ isFavorite: Bool, id: Int) {
-        print("isFavorite: \(isFavorite) id: \(id)")
+        reactor?.action.onNext(.didTapFavorite(goodsID: id, isFavorite: isFavorite))
+    }
+}
+
+// MARK: Bind
+
+private extension HomeViewController {
+    func bindAction(_ reactor: HomeViewReactor) {
+        self.rx.viewDidLoad
+            .map { _ in Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged)
+            .map { _ in Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.didScroll
+            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.asyncInstance)
+            .withUnretained(self)
+            .map { owner, _ in
+                Reactor.Action.pagination(
+                    contentHeight: owner.collectionView.contentSize.height,
+                    contentOffsetY: owner.collectionView.contentOffset.y,
+                    scrollViewHeight: owner.collectionView.frame.size.height)
+            }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    
+    func bindState(_ reactor: HomeViewReactor) {
+        reactor.state.asObservable()
+            .bind { [weak self] state in
+                guard let self = self else { return }
+                if state.isRefresh {
+                    let oldBanners = self.snapshot.itemIdentifiers(inSection: .banner)
+                    let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
+                    self.snapshot.deleteItems(oldBanners)
+                    self.snapshot.deleteItems(oldGoods)
+                    
+                    self.snapshot.appendItems([state.banners], toSection: .banner)
+                    self.snapshot.appendItems(state.products, toSection: .goods)
+                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
+                    self.refreshControl.endRefreshing()
+                }
+            }.disposed(by: disposeBag)
+        
+        reactor.state.asObservable()
+            .map { $0.nextProducts }
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .bind { owner, nextProducts in
+                if !nextProducts.isEmpty {
+                    owner.snapshot.appendItems(nextProducts, toSection: .goods)
+                    owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+                }
+            }.disposed(by: disposeBag)
     }
 }

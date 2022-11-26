@@ -18,7 +18,11 @@ class HomeNavigator {
     }
     
     func toHome() {
-        let vc = HomeViewController(services: services)
+        let homeViewReactor = HomeViewReactor(
+            bannerUseCase: services.makeBannerUseCase(),
+            productUseCase: services.makeProductUseCase(),
+            favoriteProductUseCase: services.makeFavoriteProductUseCase())
+        let vc = HomeViewController(reactor: homeViewReactor)
         navigationController.pushViewController(vc, animated: true)
     }
     
