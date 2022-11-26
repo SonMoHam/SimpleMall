@@ -43,7 +43,7 @@ class MainNavigator {
             [homeNavigationController, favoriteNavigationController],
             animated: false)
         tabBarController.tabBar.backgroundColor = .systemGray5
-        tabBarController.tabBar.tintColor = .red
+        tabBarController.tabBar.tintColor = AppStyles.Color.customPink
         
         homeNavigator.toHome()
         favoriteNavigator.toFavorite()

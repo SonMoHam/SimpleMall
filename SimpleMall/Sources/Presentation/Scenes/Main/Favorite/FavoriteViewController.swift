@@ -14,6 +14,7 @@ final class FavoriteViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        self.title = "좋아요"
     }
     
     @available(*, unavailable)

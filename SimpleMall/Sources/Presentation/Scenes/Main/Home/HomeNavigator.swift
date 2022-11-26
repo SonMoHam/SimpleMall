@@ -18,7 +18,7 @@ class HomeNavigator {
     }
     
     func toHome() {
-        let vc = HomeViewController()
+        let vc = HomeViewController(services: services)
         navigationController.pushViewController(vc, animated: true)
     }
     
