@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class AppManager {
-    static let shared = AppManager(useCaseProvider: NetUseCaseProvider())
+    static let shared = AppManager(useCaseProvider: MoyaUseCaseProvider())
     
     private let networkUseCaseProvider: UseCaseProdiver
     
