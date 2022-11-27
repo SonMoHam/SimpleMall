@@ -17,6 +17,7 @@ final class RMProduct: Object {
     @objc dynamic var isNew: Bool = false
     @objc dynamic var sellCount: Int = 0
     @objc dynamic var isFavorite: Bool = false
+    @objc dynamic var date: Date = Date()
     
     override class func primaryKey() -> String? {
         return "id"
