@@ -27,6 +27,7 @@
 		126D271A29332A4E004B33B9 /* FavoriteViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */; };
 		126D271D293339BF004B33B9 /* FavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */; };
 		126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */; };
+		126D27222933470C004B33B9 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27212933470C004B33B9 /* Result+.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewReactor.swift; sourceTree = "<group>"; };
 		126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteProductStorage.swift; sourceTree = "<group>"; };
+		126D27212933470C004B33B9 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				128C9A46293128130093934E /* NSMutableAttributedString+.swift */,
 				12500AE7293226E3005CD7B2 /* UIViewController+Rx.swift */,
 				12500AE929323D70005CD7B2 /* UserDefaultsAvailable.swift */,
+				126D27212933470C004B33B9 /* Result+.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				12500AE8293226E3005CD7B2 /* UIViewController+Rx.swift in Sources */,
 				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
+				126D27222933470C004B33B9 /* Result+.swift in Sources */,
 				12500AEA29323D70005CD7B2 /* UserDefaultsAvailable.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
 				12F707DF292F682F0092E005 /* NetworkService.swift in Sources */,
