@@ -29,6 +29,8 @@
 		126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */; };
 		126D27222933470C004B33B9 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27212933470C004B33B9 /* Result+.swift */; };
 		126D272429338029004B33B9 /* PersistentFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */; };
+		126D27272933A296004B33B9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 126D27262933A296004B33B9 /* Realm */; };
+		126D27292933A296004B33B9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126D27282933A296004B33B9 /* RealmSwift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -126,9 +128,11 @@
 				126D6FE9292F3216004FAB0D /* RxRelay in Frameworks */,
 				126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */,
 				126D6FE4292F31E1004FAB0D /* RxMoya in Frameworks */,
+				126D27272933A296004B33B9 /* Realm in Frameworks */,
 				126D6FEE292F3238004FAB0D /* SnapKit in Frameworks */,
 				126D6FE0292F31E1004FAB0D /* Moya in Frameworks */,
 				126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */,
+				126D27292933A296004B33B9 /* RealmSwift in Frameworks */,
 				126D6FE7292F3216004FAB0D /* RxCocoa in Frameworks */,
 				126D6FE2292F31E1004FAB0D /* ReactiveMoya in Frameworks */,
 			);
@@ -482,6 +486,8 @@
 				126D6FED292F3238004FAB0D /* SnapKit */,
 				126D6FF0292F3261004FAB0D /* ReactorKit */,
 				126D6FF3292F32A2004FAB0D /* SDWebImage */,
+				126D27262933A296004B33B9 /* Realm */,
+				126D27282933A296004B33B9 /* RealmSwift */,
 			);
 			productName = SimpleMall;
 			productReference = 126D6FC4292F306D004FAB0D /* SimpleMall.app */;
@@ -517,6 +523,7 @@
 				126D6FEC292F3238004FAB0D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				126D6FEF292F3261004FAB0D /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				126D6FF2292F32A2004FAB0D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 126D6FC5292F306D004FAB0D /* Products */;
 			projectDirPath = "";
@@ -800,6 +807,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.32.3;
+			};
+		};
 		126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -843,6 +858,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		126D27262933A296004B33B9 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		126D27282933A296004B33B9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		126D6FDF292F31E1004FAB0D /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */;
