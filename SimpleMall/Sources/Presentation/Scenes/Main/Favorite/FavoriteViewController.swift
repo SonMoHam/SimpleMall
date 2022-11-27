@@ -88,12 +88,12 @@ final class FavoriteViewController: UIViewController, View {
 
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),  // group 내 item, width 꽉 채움
-                heightDimension: .estimated(10))   // 동적 높이
+                heightDimension: .estimated(100))   // 동적 높이
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),  // width 꽉 채움
-                heightDimension: .estimated(10))   // 동적 높이
+                heightDimension: .estimated(100))   // 동적 높이
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: groupSize,
                 subitem: item,
