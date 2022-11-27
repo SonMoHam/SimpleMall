@@ -96,8 +96,6 @@ final class HomeViewController: UIViewController, View {
     
     init(reactor: HomeViewReactor) {
         super.init(nibName: nil, bundle: nil)
-        snapshot.appendSections([.banner, .goods])
-        dataSource.apply(snapshot)
         self.title = "홈"
         self.reactor = reactor
     }
@@ -198,16 +196,15 @@ private extension HomeViewController {
             .bind { [weak self] state in
                 guard let self = self else { return }
                 if state.isRefresh {
-                    let oldBanners = self.snapshot.itemIdentifiers(inSection: .banner)
-                    let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
-                    self.snapshot.deleteItems(oldBanners)
-                    self.snapshot.deleteItems(oldGoods)
+                    self.snapshot.deleteAllItems()
+                    self.snapshot.appendSections([.banner, .goods])
                     
                     self.snapshot.appendItems([state.banners], toSection: .banner)
                     self.snapshot.appendItems(state.products, toSection: .goods)
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                     self.refreshControl.endRefreshing()
                 } else {
+                    // nextPage & favorite 
                     let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
                     self.snapshot.deleteItems(oldGoods)
                     self.snapshot.appendItems(state.products, toSection: .goods)
@@ -215,15 +212,5 @@ private extension HomeViewController {
                 }
             }.disposed(by: disposeBag)
         
-        reactor.state.asObservable()
-            .map { $0.nextProducts }
-            .distinctUntilChanged()
-            .withUnretained(self)
-            .bind { owner, nextProducts in
-                if !nextProducts.isEmpty {
-                    owner.snapshot.appendItems(nextProducts, toSection: .goods)
-                    owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
-                }
-            }.disposed(by: disposeBag)
     }
 }
