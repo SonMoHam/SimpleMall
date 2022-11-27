@@ -235,31 +235,53 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		126D271B29333992004B33B9 /* FavoriteProductStorage */ = {
+		126D271B29333992004B33B9 /* FavoriteProduct */ = {
 			isa = PBXGroup;
 			children = (
-				126D272A2933A572004B33B9 /* RealmStorage */,
-				126D271E29333C37004B33B9 /* UserDefaultsStorage */,
-				126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */,
 				126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */,
+				126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */,
 			);
-			path = FavoriteProductStorage;
+			path = FavoriteProduct;
 			sourceTree = "<group>";
 		};
-		126D271E29333C37004B33B9 /* UserDefaultsStorage */ = {
+		126D271E29333C37004B33B9 /* UserDefaultsPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				126D272E2933A817004B33B9 /* Storages */,
+			);
+			path = UserDefaultsPlatform;
+			sourceTree = "<group>";
+		};
+		126D272A2933A572004B33B9 /* RealmPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				126D272F2933A824004B33B9 /* Storages */,
+			);
+			path = RealmPlatform;
+			sourceTree = "<group>";
+		};
+		126D272D2933A7B7004B33B9 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				126D271B29333992004B33B9 /* FavoriteProduct */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		126D272E2933A817004B33B9 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
 				126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */,
 			);
-			path = UserDefaultsStorage;
+			path = Storages;
 			sourceTree = "<group>";
 		};
-		126D272A2933A572004B33B9 /* RealmStorage */ = {
+		126D272F2933A824004B33B9 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
 				126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */,
 			);
-			path = RealmStorage;
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		126D6FBB292F306D004FAB0D = {
@@ -381,7 +403,9 @@
 		12F707BA292F48580092E005 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				126D271B29333992004B33B9 /* FavoriteProductStorage */,
+				126D272D2933A7B7004B33B9 /* UseCases */,
+				126D271E29333C37004B33B9 /* UserDefaultsPlatform */,
+				126D272A2933A572004B33B9 /* RealmPlatform */,
 			);
 			path = Persistent;
 			sourceTree = "<group>";
