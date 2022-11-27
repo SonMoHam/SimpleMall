@@ -25,6 +25,6 @@ extension MoyaUseCaseProvider: UseCaseProdiver {
     }
     
     func makeFavoriteProductUseCase() -> FavoriteProductUseCase {
-        return StubFavoriteProductUseCase()
+        return UDFavoriteProductUseCase()
     }
 }

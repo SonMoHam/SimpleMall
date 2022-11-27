@@ -39,9 +39,6 @@ final class HomeViewReactor: Reactor {
     private let productUseCase: ProductUseCase
     private let favoriteProductUseCase: FavoriteProductUseCase
     
-    private let encoder: JSONEncoder = .init()
-    private let decoder: JSONDecoder = .init()
-    
     init(
         bannerUseCase: BannerUseCase,
         productUseCase: ProductUseCase,
@@ -58,9 +55,11 @@ final class HomeViewReactor: Reactor {
         switch action {
         case .refresh:
             return Observable
-                .combineLatest(bannerUseCase.banners(), productUseCase.products())
-                .map { [weak self] banners, products in
-                    let favorites = self?.fetchFavorite() ?? []
+                .combineLatest(
+                    bannerUseCase.banners(),
+                    productUseCase.products(),
+                    favoriteProductUseCase.products())
+                .map { banners, products, favorites in
                     let mutated = products.map { product in
                         var newP = product
                         newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
@@ -73,10 +72,11 @@ final class HomeViewReactor: Reactor {
             if contentHeight - scrollViewHeight < contentOffsetY,
                let lastID = currentState.products.last?.id
             {
-                return productUseCase
-                    .products(lastID: lastID)
-                    .map { [weak self] products in
-                        let favorites = self?.fetchFavorite() ?? []
+                return Observable
+                    .combineLatest(
+                        productUseCase.products(lastID: lastID),
+                        favoriteProductUseCase.products())
+                    .map { products, favorites in
                         let mutated = products.map { product in
                             var newP = product
                             newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
@@ -91,18 +91,13 @@ final class HomeViewReactor: Reactor {
         case let .didTapFavorite(goodsID, isFavorite):
             if let product = currentState.products.filter({ $0.id == goodsID }).first {
                 if isFavorite {
-                    saveFavorite(product: product)
-                    return .just(.updateFavoriteProducts(product, isFavorite))
-                    // TODO: UseCase&DataLayer 미구현 시 emit 없어 Mutation이 없음, 구현 후 복구
-//                    favoriteProductUseCase
-//                        .save(product: product)
-//                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
+                    return favoriteProductUseCase
+                        .save(product: product)
+                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
                 } else {
-                    deleteFavorite(product: product)
-                    return .just(.updateFavoriteProducts(product, isFavorite))
-//                    favoriteProductUseCase
-//                        .delete(product: product)
-//                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
+                    return favoriteProductUseCase
+                        .delete(product: product)
+                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
                 }
             } else {
                 return .empty()
@@ -134,37 +129,5 @@ final class HomeViewReactor: Reactor {
         }
         
         return newState
-    }
-    
-    // TODO: 찜 관련 메서드&로직 Data layer로 이동, 추상화 하여 UserDefaults & CoreData 로 영속성 구현
-    
-    private func fetchFavorite() -> [Product] {
-        guard let data = UserDefaults.Favorite.object(forKey: .products) as? Data,
-              let products = try? decoder.decode([Product].self, from: data)
-        else { return [] }
-        print(#function)
-        dump(products)
-        return products
-    }
-    
-    private func updateFavorite(_ products: [Product]) {
-        let encoded = try? encoder.encode(products)
-        UserDefaults.Favorite.set(value: encoded, forKey: .products)
-    }
-    
-    private func saveFavorite(product: Product) {
-        var newP = product
-        newP.isFavorite = true
-        var products = fetchFavorite()
-        if products.filter({ $0.id == newP.id }).isEmpty {
-            products.append(newP)
-            updateFavorite(products)
-        }
-    }
-    
-    private func deleteFavorite(product: Product) {
-        let oldProducts = fetchFavorite()
-        let newProducts = oldProducts.filter { $0.id != product.id }
-        updateFavorite(newProducts)
     }
 }

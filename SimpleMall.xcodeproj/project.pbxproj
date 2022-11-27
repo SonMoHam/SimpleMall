@@ -25,6 +25,9 @@
 		1260B7182932149700BDA2B1 /* MoyaUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */; };
 		1260B71A29321C9900BDA2B1 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B71929321C9900BDA2B1 /* HomeViewReactor.swift */; };
 		126D271A29332A4E004B33B9 /* FavoriteViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */; };
+		126D271D293339BF004B33B9 /* FavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */; };
+		126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */; };
+		126D27222933470C004B33B9 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27212933470C004B33B9 /* Result+.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -81,6 +84,9 @@
 		1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaUseCaseProvider.swift; sourceTree = "<group>"; };
 		1260B71929321C9900BDA2B1 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
 		126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewReactor.swift; sourceTree = "<group>"; };
+		126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductStorage.swift; sourceTree = "<group>"; };
+		126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteProductStorage.swift; sourceTree = "<group>"; };
+		126D27212933470C004B33B9 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +230,24 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		126D271B29333992004B33B9 /* FavoriteProductStorage */ = {
+			isa = PBXGroup;
+			children = (
+				126D271E29333C37004B33B9 /* UserDefaultsStorage */,
+				126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */,
+			);
+			path = FavoriteProductStorage;
+			sourceTree = "<group>";
+		};
+		126D271E29333C37004B33B9 /* UserDefaultsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
+				126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */,
+			);
+			path = UserDefaultsStorage;
+			sourceTree = "<group>";
+		};
 		126D6FBB292F306D004FAB0D = {
 			isa = PBXGroup;
 			children = (
@@ -343,17 +367,9 @@
 		12F707BA292F48580092E005 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				12F707BB292F48C20092E005 /* UserDefaults */,
+				126D271B29333992004B33B9 /* FavoriteProductStorage */,
 			);
 			path = Persistent;
-			sourceTree = "<group>";
-		};
-		12F707BB292F48C20092E005 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				12F707BD292F49180092E005 /* UseCases */,
-			);
-			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		12F707BC292F48E00092E005 /* UseCases */ = {
@@ -362,14 +378,6 @@
 				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
 				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
 				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		12F707BD292F49180092E005 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -390,6 +398,7 @@
 				128C9A46293128130093934E /* NSMutableAttributedString+.swift */,
 				12500AE7293226E3005CD7B2 /* UIViewController+Rx.swift */,
 				12500AE929323D70005CD7B2 /* UserDefaultsAvailable.swift */,
+				126D27212933470C004B33B9 /* Result+.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -539,6 +548,7 @@
 				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
 				128C9A4F29313BF60093934E /* BannerViewCell.swift in Sources */,
 				1260B71029320B3300BDA2B1 /* HomeAPI.swift in Sources */,
+				126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */,
 				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
 				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
 				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
@@ -558,11 +568,13 @@
 				12500AE8293226E3005CD7B2 /* UIViewController+Rx.swift in Sources */,
 				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,
+				126D27222933470C004B33B9 /* Result+.swift in Sources */,
 				12500AEA29323D70005CD7B2 /* UserDefaultsAvailable.swift in Sources */,
 				12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */,
 				12F707DF292F682F0092E005 /* NetworkService.swift in Sources */,
 				12F707E2292F68EC0092E005 /* HomeEndpoints.swift in Sources */,
 				1260B71A29321C9900BDA2B1 /* HomeViewReactor.swift in Sources */,
+				126D271D293339BF004B33B9 /* FavoriteProductStorage.swift in Sources */,
 				124B948A292FB0C400E12689 /* AppManager.swift in Sources */,
 				12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */,
 				12500AEC29323DBF005CD7B2 /* UserDefaultsKeys.swift in Sources */,
