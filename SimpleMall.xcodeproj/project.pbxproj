@@ -35,6 +35,7 @@
 		126D27322933A973004B33B9 /* RMProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27312933A973004B33B9 /* RMProduct.swift */; };
 		126D27352933B160004B33B9 /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27342933B160004B33B9 /* DomainConvertible.swift */; };
 		126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27362933B181004B33B9 /* RealmConvertible.swift */; };
+		126D27392933C1B6004B33B9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27382933C1B6004B33B9 /* RealmManager.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		126D27312933A973004B33B9 /* RMProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMProduct.swift; sourceTree = "<group>"; };
 		126D27342933B160004B33B9 /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
 		126D27362933B181004B33B9 /* RealmConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConvertible.swift; sourceTree = "<group>"; };
+		126D27382933C1B6004B33B9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		126D272A2933A572004B33B9 /* RealmPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				126D27382933C1B6004B33B9 /* RealmManager.swift */,
 				126D27302933A926004B33B9 /* Entities */,
 				126D272F2933A824004B33B9 /* Storages */,
 			);
@@ -658,6 +661,7 @@
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
 				12F707F129306DE40092E005 /* ProductCell.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,
+				126D27392933C1B6004B33B9 /* RealmManager.swift in Sources */,
 				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
 				126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */,
 			);
