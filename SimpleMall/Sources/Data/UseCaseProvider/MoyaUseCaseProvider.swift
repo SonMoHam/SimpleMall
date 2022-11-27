@@ -9,9 +9,11 @@ import Foundation
 
 final class MoyaUseCaseProvider {
     private let networkService: HomeAPI
+    private let storage: FavoriteProductStorage
     
     init() {
         self.networkService = HomeAPI()
+        self.storage = UserDefaultsFavoriteProductStorage()
     }
 }
 
@@ -25,6 +27,6 @@ extension MoyaUseCaseProvider: UseCaseProdiver {
     }
     
     func makeFavoriteProductUseCase() -> FavoriteProductUseCase {
-        return UDFavoriteProductUseCase()
+        return PersistentFavoriteProductUseCase(storage: storage)
     }
 }
