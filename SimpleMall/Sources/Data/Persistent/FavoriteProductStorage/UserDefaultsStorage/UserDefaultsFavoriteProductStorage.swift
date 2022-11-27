@@ -20,8 +20,6 @@ final class UserDefaultsFavoriteProductStorage {
         guard let data = UserDefaults.Favorite.object(forKey: .products) as? Data,
               let products = try? decoder.decode([Product].self, from: data)
         else { return [] }
-        print("\(String(describing: self)) \(#function)")
-        dump(products)
         return products
     }
     
