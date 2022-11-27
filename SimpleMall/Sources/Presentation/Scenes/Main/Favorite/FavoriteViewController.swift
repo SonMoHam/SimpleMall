@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 import SnapKit
+import ReactorKit
 import RxSwift
 import RxCocoa
 
-final class FavoriteViewController: UIViewController {
+final class FavoriteViewController: UIViewController, View {
     
     // MARK: Properties
     
@@ -50,9 +51,10 @@ final class FavoriteViewController: UIViewController {
     
     // MARK: Initializing
     
-    init() {
+    init(reactor: FavoriteViewReactor) {
         super.init(nibName: nil, bundle: nil)
         self.title = "좋아요"
+        self.reactor = reactor
     }
     
     @available(*, unavailable)
@@ -68,23 +70,12 @@ final class FavoriteViewController: UIViewController {
         setupConstraints()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print(#function)
-        
-        self.snapshot.deleteAllItems()
-        
-        let decoder = JSONDecoder()
-        guard let data = UserDefaults.Favorite.object(forKey: .products) as? Data,
-              let products = try? decoder.decode([Product].self, from: data)
-        else { return }
-        self.snapshot.appendSections([0])
-        self.snapshot.appendItems(products)
-        self.dataSource.apply(self.snapshot, animatingDifferences: true)
-        
-    }
-    
     // MARK: Methods
+    
+    func bind(reactor: FavoriteViewReactor) {
+        bindAction(reactor)
+        bindState(reactor)
+    }
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
@@ -120,5 +111,28 @@ final class FavoriteViewController: UIViewController {
 extension FavoriteViewController: ProductCellDelegate {
     func favoriteButtonDidTapped(_ isFavorite: Bool, id: Int) {
         print(isFavorite,id)
+    }
+}
+
+// MARK: - Bind
+
+extension FavoriteViewController {
+    func bindAction(_ reactor: FavoriteViewReactor) {
+        self.rx.viewWillAppear
+            .map { _ in Reactor.Action.refresh }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    
+    func bindState(_ reactor: FavoriteViewReactor) {
+        reactor.state.asObservable()
+            .map { $0.favoriteProducts }
+            .withUnretained(self)
+            .bind { owner, products in
+                owner.snapshot.deleteAllItems()
+                owner.snapshot.appendSections([0])
+                owner.snapshot.appendItems(products)
+                owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
     }
 }
