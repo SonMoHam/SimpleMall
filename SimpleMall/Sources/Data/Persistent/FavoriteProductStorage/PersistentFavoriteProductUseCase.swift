@@ -60,7 +60,7 @@ extension PersistentFavoriteProductUseCase: FavoriteProductUseCase {
     }
 }
 
-/*
+
 final class StubFavoriteProductUseCase: FavoriteProductUseCase {
     func products() -> Observable<[Product]> {
         let dummyProducts: [Product] = [
@@ -97,4 +97,4 @@ final class StubFavoriteProductUseCase: FavoriteProductUseCase {
         return Observable.empty()
     }
 }
-*/
+
