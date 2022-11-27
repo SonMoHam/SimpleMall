@@ -24,6 +24,7 @@
 		1260B716293213AC00BDA2B1 /* MoyaProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B715293213AC00BDA2B1 /* MoyaProductUseCase.swift */; };
 		1260B7182932149700BDA2B1 /* MoyaUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */; };
 		1260B71A29321C9900BDA2B1 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260B71929321C9900BDA2B1 /* HomeViewReactor.swift */; };
+		126D271A29332A4E004B33B9 /* FavoriteViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		1260B715293213AC00BDA2B1 /* MoyaProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProductUseCase.swift; sourceTree = "<group>"; };
 		1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaUseCaseProvider.swift; sourceTree = "<group>"; };
 		1260B71929321C9900BDA2B1 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
+		126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewReactor.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				124B9487292FAFDE00E12689 /* FavoriteNavigator.swift */,
+				126D271929332A4E004B33B9 /* FavoriteViewReactor.swift */,
 				124B9485292FAFD600E12689 /* FavoriteViewController.swift */,
 			);
 			path = Favorite;
@@ -551,6 +554,7 @@
 				12F707E5292F69ED0092E005 /* HomeResponseDTO.swift in Sources */,
 				126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */,
 				128C9A4D293137C00093934E /* AppStyles.swift in Sources */,
+				126D271A29332A4E004B33B9 /* FavoriteViewReactor.swift in Sources */,
 				12500AE8293226E3005CD7B2 /* UIViewController+Rx.swift in Sources */,
 				124B9474292FA1FA00E12689 /* NetUseCaseProvider.swift in Sources */,
 				12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */,

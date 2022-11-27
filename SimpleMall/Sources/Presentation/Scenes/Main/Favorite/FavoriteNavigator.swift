@@ -18,7 +18,9 @@ class FavoriteNavigator {
     }
     
     func toFavorite() {
-        let vc = FavoriteViewController()
+        let favoriteUseCase = services.makeFavoriteProductUseCase()
+        let reactor = FavoriteViewReactor(favoriteProductUseCase: favoriteUseCase)
+        let vc = FavoriteViewController(reactor: reactor)
         navigationController.pushViewController(vc, animated: true)
     }
     

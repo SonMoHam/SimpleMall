@@ -137,7 +137,8 @@ final class ProductCell: UICollectionViewCell {
     // MARK: Methods
     
     private func setupConstraints() {
-        let imageSize = self.bounds.width / 4
+//        let imageSize: CGFloat = self.bounds.width / 4
+        let imageSize: CGFloat = 100
         
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(Metric.padding)
