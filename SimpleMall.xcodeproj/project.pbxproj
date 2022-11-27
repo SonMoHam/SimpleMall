@@ -28,6 +28,14 @@
 		126D271D293339BF004B33B9 /* FavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */; };
 		126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */; };
 		126D27222933470C004B33B9 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27212933470C004B33B9 /* Result+.swift */; };
+		126D272429338029004B33B9 /* PersistentFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */; };
+		126D27272933A296004B33B9 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 126D27262933A296004B33B9 /* Realm */; };
+		126D27292933A296004B33B9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126D27282933A296004B33B9 /* RealmSwift */; };
+		126D272C2933A598004B33B9 /* RealmFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */; };
+		126D27322933A973004B33B9 /* RMProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27312933A973004B33B9 /* RMProduct.swift */; };
+		126D27352933B160004B33B9 /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27342933B160004B33B9 /* DomainConvertible.swift */; };
+		126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27362933B181004B33B9 /* RealmConvertible.swift */; };
+		126D27392933C1B6004B33B9 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27382933C1B6004B33B9 /* RealmManager.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -50,7 +58,6 @@
 		12F707B3292F3F230092E005 /* ProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B2292F3F230092E005 /* ProductUseCase.swift */; };
 		12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */; };
 		12F707B7292F41380092E005 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B6292F41380092E005 /* UseCaseProvider.swift */; };
-		12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */; };
 		12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C0292F4B850092E005 /* NetBannerUseCase.swift */; };
 		12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C2292F4C480092E005 /* NetProductUseCase.swift */; };
 		12F707C6292F54CE0092E005 /* StubUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */; };
@@ -87,6 +94,12 @@
 		126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D27212933470C004B33B9 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
+		126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFavoriteProductUseCase.swift; sourceTree = "<group>"; };
+		126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoriteProductStorage.swift; sourceTree = "<group>"; };
+		126D27312933A973004B33B9 /* RMProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMProduct.swift; sourceTree = "<group>"; };
+		126D27342933B160004B33B9 /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
+		126D27362933B181004B33B9 /* RealmConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConvertible.swift; sourceTree = "<group>"; };
+		126D27382933C1B6004B33B9 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +115,6 @@
 		12F707B2292F3F230092E005 /* ProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUseCase.swift; sourceTree = "<group>"; };
 		12F707B4292F40830092E005 /* FavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		12F707B6292F41380092E005 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
-		12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDFavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		12F707C0292F4B850092E005 /* NetBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetBannerUseCase.swift; sourceTree = "<group>"; };
 		12F707C2292F4C480092E005 /* NetProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetProductUseCase.swift; sourceTree = "<group>"; };
 		12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUseCaseProvider.swift; sourceTree = "<group>"; };
@@ -126,9 +138,11 @@
 				126D6FE9292F3216004FAB0D /* RxRelay in Frameworks */,
 				126D6FF1292F3261004FAB0D /* ReactorKit in Frameworks */,
 				126D6FE4292F31E1004FAB0D /* RxMoya in Frameworks */,
+				126D27272933A296004B33B9 /* Realm in Frameworks */,
 				126D6FEE292F3238004FAB0D /* SnapKit in Frameworks */,
 				126D6FE0292F31E1004FAB0D /* Moya in Frameworks */,
 				126D6FF4292F32A2004FAB0D /* SDWebImage in Frameworks */,
+				126D27292933A296004B33B9 /* RealmSwift in Frameworks */,
 				126D6FE7292F3216004FAB0D /* RxCocoa in Frameworks */,
 				126D6FE2292F31E1004FAB0D /* ReactiveMoya in Frameworks */,
 			);
@@ -225,27 +239,77 @@
 			children = (
 				1260B7132932127000BDA2B1 /* MoyaBannerUseCase.swift */,
 				1260B715293213AC00BDA2B1 /* MoyaProductUseCase.swift */,
-				1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		126D271B29333992004B33B9 /* FavoriteProductStorage */ = {
+		126D271B29333992004B33B9 /* FavoriteProduct */ = {
 			isa = PBXGroup;
 			children = (
-				126D271E29333C37004B33B9 /* UserDefaultsStorage */,
+				126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */,
 				126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */,
 			);
-			path = FavoriteProductStorage;
+			path = FavoriteProduct;
 			sourceTree = "<group>";
 		};
-		126D271E29333C37004B33B9 /* UserDefaultsStorage */ = {
+		126D271E29333C37004B33B9 /* UserDefaultsPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
+				126D272E2933A817004B33B9 /* Storages */,
+			);
+			path = UserDefaultsPlatform;
+			sourceTree = "<group>";
+		};
+		126D272A2933A572004B33B9 /* RealmPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				126D27382933C1B6004B33B9 /* RealmManager.swift */,
+				126D27302933A926004B33B9 /* Entities */,
+				126D272F2933A824004B33B9 /* Storages */,
+			);
+			path = RealmPlatform;
+			sourceTree = "<group>";
+		};
+		126D272D2933A7B7004B33B9 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				126D271B29333992004B33B9 /* FavoriteProduct */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		126D272E2933A817004B33B9 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
 				126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */,
 			);
-			path = UserDefaultsStorage;
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		126D272F2933A824004B33B9 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		126D27302933A926004B33B9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				126D27312933A973004B33B9 /* RMProduct.swift */,
+				126D27332933B13E004B33B9 /* Convertible */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		126D27332933B13E004B33B9 /* Convertible */ = {
+			isa = PBXGroup;
+			children = (
+				126D27342933B160004B33B9 /* DomainConvertible.swift */,
+				126D27362933B181004B33B9 /* RealmConvertible.swift */,
+			);
+			path = Convertible;
 			sourceTree = "<group>";
 		};
 		126D6FBB292F306D004FAB0D = {
@@ -367,7 +431,9 @@
 		12F707BA292F48580092E005 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				126D271B29333992004B33B9 /* FavoriteProductStorage */,
+				126D272D2933A7B7004B33B9 /* UseCases */,
+				126D271E29333C37004B33B9 /* UserDefaultsPlatform */,
+				126D272A2933A572004B33B9 /* RealmPlatform */,
 			);
 			path = Persistent;
 			sourceTree = "<group>";
@@ -377,7 +443,6 @@
 			children = (
 				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
 				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
-				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -385,6 +450,8 @@
 		12F707C4292F54AB0092E005 /* UseCaseProvider */ = {
 			isa = PBXGroup;
 			children = (
+				1260B7172932149700BDA2B1 /* MoyaUseCaseProvider.swift */,
+				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
 				12F707C5292F54CE0092E005 /* StubUseCaseProvider.swift */,
 			);
 			path = UseCaseProvider;
@@ -482,6 +549,8 @@
 				126D6FED292F3238004FAB0D /* SnapKit */,
 				126D6FF0292F3261004FAB0D /* ReactorKit */,
 				126D6FF3292F32A2004FAB0D /* SDWebImage */,
+				126D27262933A296004B33B9 /* Realm */,
+				126D27282933A296004B33B9 /* RealmSwift */,
 			);
 			productName = SimpleMall;
 			productReference = 126D6FC4292F306D004FAB0D /* SimpleMall.app */;
@@ -517,6 +586,7 @@
 				126D6FEC292F3238004FAB0D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				126D6FEF292F3261004FAB0D /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				126D6FF2292F32A2004FAB0D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 126D6FC5292F306D004FAB0D /* Products */;
 			projectDirPath = "";
@@ -545,16 +615,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F707DD292F67790092E005 /* Endpoint.swift in Sources */,
-				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
 				128C9A4F29313BF60093934E /* BannerViewCell.swift in Sources */,
 				1260B71029320B3300BDA2B1 /* HomeAPI.swift in Sources */,
+				126D272429338029004B33B9 /* PersistentFavoriteProductUseCase.swift in Sources */,
 				126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */,
 				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
 				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
+				126D27352933B160004B33B9 /* DomainConvertible.swift in Sources */,
 				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				128C9A47293128130093934E /* NSMutableAttributedString+.swift in Sources */,
 				12F707B5292F40830092E005 /* FavoriteProductUseCase.swift in Sources */,
+				126D272C2933A598004B33B9 /* RealmFavoriteProductStorage.swift in Sources */,
+				126D27322933A973004B33B9 /* RMProduct.swift in Sources */,
 				124B9488292FAFDE00E12689 /* FavoriteNavigator.swift in Sources */,
 				124B9481292FADB800E12689 /* HomeViewController.swift in Sources */,
 				124B9483292FADC100E12689 /* HomeNavigator.swift in Sources */,
@@ -588,7 +661,9 @@
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
 				12F707F129306DE40092E005 /* ProductCell.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,
+				126D27392933C1B6004B33B9 /* RealmManager.swift in Sources */,
 				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
+				126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +875,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.32.3;
+			};
+		};
 		126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -843,6 +926,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		126D27262933A296004B33B9 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		126D27282933A296004B33B9 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126D27252933A296004B33B9 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		126D6FDF292F31E1004FAB0D /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 126D6FDE292F31E1004FAB0D /* XCRemoteSwiftPackageReference "Moya" */;

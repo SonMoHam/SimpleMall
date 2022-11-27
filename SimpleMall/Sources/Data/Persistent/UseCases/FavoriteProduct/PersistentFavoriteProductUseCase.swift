@@ -1,23 +1,23 @@
 //
-//  UDFavoriteProductUseCase.swift
+//  PersistentFavoriteProductUseCase.swift
 //  SimpleMall
 //
-//  Created by Son Daehong on 2022/11/24.
+//  Created by 손대홍 on 2022/11/27.
 //
 
 import Foundation
 import RxSwift
 
-/// Persistent - UserDefaults FavoriteProductUseCase
-final class UDFavoriteProductUseCase {
+/// Persistent  FavoriteProductUseCase
+final class PersistentFavoriteProductUseCase {
     private let storage: FavoriteProductStorage
-    init() {
-        storage = UserDefaultsFavoriteProductStorage()
+    
+    init(storage: FavoriteProductStorage) {
+        self.storage = storage
     }
 }
 
-
-extension UDFavoriteProductUseCase: FavoriteProductUseCase {
+extension PersistentFavoriteProductUseCase: FavoriteProductUseCase {
     func products() -> Observable<[Product]> {
         let result = storage.products()
         return Observable.create { observer -> Disposable in
@@ -96,6 +96,5 @@ final class StubFavoriteProductUseCase: FavoriteProductUseCase {
     func delete(product: Product) -> Observable<Void> {
         return Observable.empty()
     }
-    
-    
 }
+
