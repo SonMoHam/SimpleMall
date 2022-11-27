@@ -15,9 +15,9 @@ public extension Reactive where Base: UIViewController {
         return sentMessage(#selector(UIViewController.viewDidLoad)).map { _ in }
     }
     
-//    var viewWillAppear: Observable<Void> {
-//        return sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
-//    }
+    var viewWillAppear: Observable<Void> {
+        return sentMessage(#selector(UIViewController.viewWillAppear(_:))).map { _ in }
+    }
 //
 //    var viewDidAppear: Observable<Void> {
 //        return sentMessage(#selector(UIViewController.viewDidAppear(_:))).map { _ in }
