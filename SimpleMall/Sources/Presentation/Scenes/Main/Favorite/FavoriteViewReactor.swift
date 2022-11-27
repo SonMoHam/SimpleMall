@@ -27,9 +27,6 @@ final class FavoriteViewReactor: Reactor {
     
     private let favoriteProductUseCase: FavoriteProductUseCase
     
-    private let encoder: JSONEncoder = .init()
-    private let decoder: JSONDecoder = .init()
-    
     init(favoriteProductUseCase: FavoriteProductUseCase) {
         self.initialState = State(favoriteProducts: [])
         self.favoriteProductUseCase = favoriteProductUseCase
@@ -38,10 +35,8 @@ final class FavoriteViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .refresh:
-            let favorites = self.fetchFavorite()
-            return .just(.refreshItems(favorites))
-//            return favoriteProductUseCase.products()
-//                .map { .refreshItems($0) }
+            return favoriteProductUseCase.products()
+                .map { .refreshItems($0) }
         }
     }
     
@@ -53,14 +48,5 @@ final class FavoriteViewReactor: Reactor {
             newState.favoriteProducts = products
         }
         return newState
-    }
-    
-    private func fetchFavorite() -> [Product] {
-        guard let data = UserDefaults.Favorite.object(forKey: .products) as? Data,
-              let products = try? decoder.decode([Product].self, from: data)
-        else { return [] }
-        print(#function)
-        dump(products)
-        return products
     }
 }
