@@ -33,6 +33,8 @@
 		126D27292933A296004B33B9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126D27282933A296004B33B9 /* RealmSwift */; };
 		126D272C2933A598004B33B9 /* RealmFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */; };
 		126D27322933A973004B33B9 /* RMProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27312933A973004B33B9 /* RMProduct.swift */; };
+		126D27352933B160004B33B9 /* DomainConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27342933B160004B33B9 /* DomainConvertible.swift */; };
+		126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27362933B181004B33B9 /* RealmConvertible.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -94,6 +96,8 @@
 		126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		126D272B2933A598004B33B9 /* RealmFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D27312933A973004B33B9 /* RMProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMProduct.swift; sourceTree = "<group>"; };
+		126D27342933B160004B33B9 /* DomainConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertible.swift; sourceTree = "<group>"; };
+		126D27362933B181004B33B9 /* RealmConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConvertible.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,8 +295,18 @@
 			isa = PBXGroup;
 			children = (
 				126D27312933A973004B33B9 /* RMProduct.swift */,
+				126D27332933B13E004B33B9 /* Convertible */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		126D27332933B13E004B33B9 /* Convertible */ = {
+			isa = PBXGroup;
+			children = (
+				126D27342933B160004B33B9 /* DomainConvertible.swift */,
+				126D27362933B181004B33B9 /* RealmConvertible.swift */,
+			);
+			path = Convertible;
 			sourceTree = "<group>";
 		};
 		126D6FBB292F306D004FAB0D = {
@@ -604,6 +618,7 @@
 				126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */,
 				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
 				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
+				126D27352933B160004B33B9 /* DomainConvertible.swift in Sources */,
 				12F707C1292F4B850092E005 /* NetBannerUseCase.swift in Sources */,
 				126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */,
 				128C9A47293128130093934E /* NSMutableAttributedString+.swift in Sources */,
@@ -644,6 +659,7 @@
 				12F707F129306DE40092E005 /* ProductCell.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,
 				12F707E8292F6D240092E005 /* AFNetworkService.swift in Sources */,
+				126D27372933B181004B33B9 /* RealmConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
