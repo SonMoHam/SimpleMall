@@ -13,7 +13,7 @@ final class MoyaUseCaseProvider {
     
     init() {
         self.networkService = HomeAPI()
-        self.storage = UserDefaultsFavoriteProductStorage()
+        self.storage = RealmFavoriteProductStorage()
     }
 }
 
