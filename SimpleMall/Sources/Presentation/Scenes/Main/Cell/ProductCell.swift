@@ -24,7 +24,7 @@ final class ProductCell: UICollectionViewCell {
         static let isNewBorderWidth: CGFloat = 1
 
         static let padding: CGFloat = 15
-        static let contentTopMargin: CGFloat = 10
+        static let contentMargin: CGFloat = 10
         static let detailLeftMargin: CGFloat = 10
         static let priceTopMargin: CGFloat = 3
         static let descriptionTopMargin: CGFloat = 10
@@ -145,7 +145,7 @@ final class ProductCell: UICollectionViewCell {
         }
 
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metric.contentTopMargin)
+            make.top.equalToSuperview().inset(Metric.contentMargin)
             make.left.equalToSuperview()
             make.size.equalTo(imageSize)
         }
@@ -156,7 +156,8 @@ final class ProductCell: UICollectionViewCell {
         }
         
         detailContainer.snp.makeConstraints { make in
-            make.top.bottom.right.equalToSuperview().inset(Metric.contentTopMargin)
+            make.top.right.equalToSuperview().inset(Metric.contentMargin)
+            make.bottom.equalToSuperview().inset(Metric.contentMargin).priority(999)
             make.left.equalTo(imageView.snp.right).offset(Metric.detailLeftMargin)
             make.height.greaterThanOrEqualTo(imageSize)
         }
