@@ -242,6 +242,7 @@
 		126D271E29333C37004B33B9 /* UserDefaultsStorage */ = {
 			isa = PBXGroup;
 			children = (
+				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
 				126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */,
 			);
 			path = UserDefaultsStorage;
@@ -367,17 +368,8 @@
 			isa = PBXGroup;
 			children = (
 				126D271B29333992004B33B9 /* FavoriteProductStorage */,
-				12F707BB292F48C20092E005 /* UserDefaults */,
 			);
 			path = Persistent;
-			sourceTree = "<group>";
-		};
-		12F707BB292F48C20092E005 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				12F707BD292F49180092E005 /* UseCases */,
-			);
-			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		12F707BC292F48E00092E005 /* UseCases */ = {
@@ -386,14 +378,6 @@
 				12F707C0292F4B850092E005 /* NetBannerUseCase.swift */,
 				12F707C2292F4C480092E005 /* NetProductUseCase.swift */,
 				124B9473292FA1FA00E12689 /* NetUseCaseProvider.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		12F707BD292F49180092E005 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				12F707BE292F4A030092E005 /* UDFavoriteProductUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
