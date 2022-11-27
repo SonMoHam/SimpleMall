@@ -28,6 +28,7 @@
 		126D271D293339BF004B33B9 /* FavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */; };
 		126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */; };
 		126D27222933470C004B33B9 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D27212933470C004B33B9 /* Result+.swift */; };
+		126D272429338029004B33B9 /* PersistentFavoriteProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */; };
 		126D6FC8292F306D004FAB0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC7292F306D004FAB0D /* AppDelegate.swift */; };
 		126D6FCA292F306D004FAB0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D6FC9292F306D004FAB0D /* SceneDelegate.swift */; };
 		126D6FD1292F306E004FAB0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126D6FD0292F306E004FAB0D /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D271F29333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFavoriteProductStorage.swift; sourceTree = "<group>"; };
 		126D27212933470C004B33B9 /* Result+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+.swift"; sourceTree = "<group>"; };
+		126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentFavoriteProductUseCase.swift; sourceTree = "<group>"; };
 		126D6FC4292F306D004FAB0D /* SimpleMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126D6FC7292F306D004FAB0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126D6FC9292F306D004FAB0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				126D271E29333C37004B33B9 /* UserDefaultsStorage */,
 				126D271C293339BF004B33B9 /* FavoriteProductStorage.swift */,
+				126D272329338029004B33B9 /* PersistentFavoriteProductUseCase.swift */,
 			);
 			path = FavoriteProductStorage;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				12F707BF292F4A030092E005 /* UDFavoriteProductUseCase.swift in Sources */,
 				128C9A4F29313BF60093934E /* BannerViewCell.swift in Sources */,
 				1260B71029320B3300BDA2B1 /* HomeAPI.swift in Sources */,
+				126D272429338029004B33B9 /* PersistentFavoriteProductUseCase.swift in Sources */,
 				126D272029333C54004B33B9 /* UserDefaultsFavoriteProductStorage.swift in Sources */,
 				12F707C3292F4C480092E005 /* NetProductUseCase.swift in Sources */,
 				124B9476292FA58C00E12689 /* GoodsResponseDTO.swift in Sources */,
