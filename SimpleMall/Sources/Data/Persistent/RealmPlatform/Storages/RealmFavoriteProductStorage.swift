@@ -7,22 +7,25 @@
 
 import Foundation
 
-final class RealmFavoriteProductStorage { }
+final class RealmFavoriteProductStorage {
+    private let realmManager: RealmManager<Product>
+    
+    init() {
+        self.realmManager = RealmManager<Product>()
+    }
+}
+    
 
-/*
 extension RealmFavoriteProductStorage: FavoriteProductStorage {
     func products() -> Result<[Product], Error> {
-        <#code#>
+        return realmManager.fetchAll()
     }
     
     func save(product: Product) -> Result<Void, Error> {
-        <#code#>
+        return realmManager.save(entity: product)
     }
     
     func delete(product: Product) -> Result<Void, Error> {
-        <#code#>
+        return realmManager.delete(entity: product)
     }
-    
-    
 }
-*/
