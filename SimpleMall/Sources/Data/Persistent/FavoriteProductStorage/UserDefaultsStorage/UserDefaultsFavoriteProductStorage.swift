@@ -47,13 +47,13 @@ extension UserDefaultsFavoriteProductStorage: FavoriteProductStorage {
             products.append(newP)
             updateFavorite(products)
         }
-        return .success(())
+        return .success
     }
     
     func delete(product: Product) -> Result<Void, Error> {
         let products = fetchFavorite()
         let newProducts = products.filter { $0.id != product.id }
         updateFavorite(newProducts)
-        return .success(())
+        return .success
     }
 }
