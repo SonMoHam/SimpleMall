@@ -17,8 +17,6 @@ final class BannerCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(imageView)
-        imageView.image = UIImage(systemName: "heart")
-        self.backgroundColor = .red
         setupConstraints()
     }
     

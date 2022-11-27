@@ -23,5 +23,7 @@ enum AppStyles {
     enum Image {
         static let heart = UIImage(systemName: "heart")
         static let heartFill = UIImage(systemName: "heart.fill")
+        static let house = UIImage(systemName: "house")
+        static let houseFill = UIImage(systemName: "house.fill")
     }
 }

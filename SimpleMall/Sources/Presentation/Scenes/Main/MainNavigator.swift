@@ -21,8 +21,8 @@ class MainNavigator {
         let homeNavigationController = UINavigationController()
         homeNavigationController.tabBarItem = UITabBarItem(
             title: "홈",
-            image: UIImage(systemName: "house"),
-            selectedImage: UIImage(systemName: "house.fill"))
+            image: AppStyles.Image.house,
+            selectedImage: AppStyles.Image.houseFill)
         
         let homeNavigator = HomeNavigator(
             services: services,
@@ -31,8 +31,8 @@ class MainNavigator {
         let favoriteNavigationController = UINavigationController()
         favoriteNavigationController.tabBarItem = UITabBarItem(
             title: "좋아요",
-            image: UIImage(systemName: "heart"),
-            selectedImage: UIImage(systemName: "heart.fill"))
+            image: AppStyles.Image.heart,
+            selectedImage: AppStyles.Image.heartFill)
         
         let favoriteNavigator = FavoriteNavigator(
             services: services,
