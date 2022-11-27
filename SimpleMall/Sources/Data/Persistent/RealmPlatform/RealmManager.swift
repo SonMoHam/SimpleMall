@@ -38,7 +38,7 @@ final class RealmManager<T: RealmConvertible> where T == T.RealmEntity.DomainEnt
     }
     
     func delete(entity: T) -> Result<Void, Error> {
-        let targetID = entity.toRealm().primaryKey()
+        let targetID = entity.toRealm().uID()
         do {
             guard let object = realm.object(ofType: T.RealmEntity.self, forPrimaryKey: targetID)
             else {

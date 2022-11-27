@@ -36,7 +36,7 @@ extension RMProduct: DomainConvertible {
             isFavorite: isFavorite)
     }
     
-    func primaryKey() -> Int {
+    func uID() -> Int {
         return id
     }
 }
