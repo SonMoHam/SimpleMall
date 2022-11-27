@@ -11,4 +11,5 @@ protocol DomainConvertible {
     associatedtype DomainEntity
     
     func toDomain() -> DomainEntity
+    func primaryKey() -> Int
 }

@@ -35,6 +35,10 @@ extension RMProduct: DomainConvertible {
             sellCount: sellCount,
             isFavorite: isFavorite)
     }
+    
+    func primaryKey() -> Int {
+        return id
+    }
 }
 
 extension Product: RealmConvertible {
