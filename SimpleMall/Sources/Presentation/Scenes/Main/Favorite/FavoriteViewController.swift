@@ -38,7 +38,6 @@ final class FavoriteViewController: UIViewController, View {
             ) as? ProductCell {
                 cell.configure(element)
                 cell.favoriteButton.isHidden = true
-                cell.delegate = self
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -103,14 +102,6 @@ final class FavoriteViewController: UIViewController, View {
             return layoutSection
         }
         return layout
-    }
-}
-
-// MARK: - ProductCellDelegate
-
-extension FavoriteViewController: ProductCellDelegate {
-    func favoriteButtonDidTapped(_ isFavorite: Bool, id: Int) {
-        print(isFavorite,id)
     }
 }
 
