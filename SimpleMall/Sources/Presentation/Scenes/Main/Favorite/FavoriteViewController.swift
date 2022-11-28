@@ -107,7 +107,7 @@ final class FavoriteViewController: UIViewController, View {
 
 // MARK: - Bind
 
-extension FavoriteViewController {
+private extension FavoriteViewController {
     func bindAction(_ reactor: FavoriteViewReactor) {
         self.rx.viewWillAppear
             .map { _ in Reactor.Action.refresh }
