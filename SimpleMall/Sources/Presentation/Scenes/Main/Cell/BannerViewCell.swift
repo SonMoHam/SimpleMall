@@ -75,8 +75,6 @@ final class BannerViewCell: UICollectionViewCell {
                 }
                 return UICollectionViewCell()
             })
-        snapshot.appendSections([0])
-        dataSource.apply(snapshot)
     }
     
     @available(*, unavailable)
@@ -102,8 +100,8 @@ final class BannerViewCell: UICollectionViewCell {
     
     func configure(_ banners: [Banner]) {
         disposeBag = DisposeBag()
-        let target = self.snapshot.itemIdentifiers(inSection: 0)
-        self.snapshot.deleteItems(target)
+        self.snapshot.deleteAllItems()
+        self.snapshot.appendSections([0])
         self.snapshot.appendItems(banners)
         dataSource.apply(snapshot)
         pagerLabel.text = "1/\(banners.count)"
