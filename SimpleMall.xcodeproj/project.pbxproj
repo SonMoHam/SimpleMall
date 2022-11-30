@@ -52,6 +52,7 @@
 		128C9A47293128130093934E /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C9A46293128130093934E /* NSMutableAttributedString+.swift */; };
 		128C9A4D293137C00093934E /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C9A4C293137C00093934E /* AppStyles.swift */; };
 		128C9A4F29313BF60093934E /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128C9A4E29313BF60093934E /* BannerViewCell.swift */; };
+		1295579329375A21006CD3E0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295579229375A21006CD3E0 /* Coordinator.swift */; };
 		12F707AC292F370F0092E005 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AB292F370F0092E005 /* Product.swift */; };
 		12F707AE292F38500092E005 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707AD292F38500092E005 /* Banner.swift */; };
 		12F707B1292F3EC60092E005 /* BannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F707B0292F3EC60092E005 /* BannerUseCase.swift */; };
@@ -109,6 +110,7 @@
 		128C9A46293128130093934E /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		128C9A4C293137C00093934E /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 		128C9A4E29313BF60093934E /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
+		1295579229375A21006CD3E0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		12F707AB292F370F0092E005 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		12F707AD292F38500092E005 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		12F707B0292F3EC60092E005 /* BannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerUseCase.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			children = (
 				128C9A4C293137C00093934E /* AppStyles.swift */,
 				12500AEB29323DBF005CD7B2 /* UserDefaultsKeys.swift */,
+				1295579229375A21006CD3E0 /* Coordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				124B948C292FBC3400E12689 /* MainNavigator.swift in Sources */,
 				12F707AC292F370F0092E005 /* Product.swift in Sources */,
 				12F707EF29306CA20092E005 /* UICollectionViewCell+.swift in Sources */,
+				1295579329375A21006CD3E0 /* Coordinator.swift in Sources */,
 				12F707CF292F5DEA0092E005 /* Encodable+.swift in Sources */,
 				12F707F129306DE40092E005 /* ProductCell.swift in Sources */,
 				124B9486292FAFD600E12689 /* FavoriteViewController.swift in Sources */,
