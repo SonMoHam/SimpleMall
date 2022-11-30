@@ -8,7 +8,7 @@
 import Foundation
 
 /// goods
-public struct Product: Codable, Hashable {
+public struct Product: Codable, Hashable, Equatable {
     /// 상품 ID
     let id: Int
     /// 상품 이름
@@ -54,4 +54,11 @@ public struct Product: Codable, Hashable {
         case sellCount = "sell_count"
     }
     
+    public static func == (lhs: Product, rhs: Product) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
