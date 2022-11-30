@@ -119,12 +119,11 @@ final class HomeViewReactor: Reactor {
             newState.isRefresh = false
             
         case let .updateFavoriteProducts(product, newValue):
-            let newProducts = newState.products.map {
-                var newP = $0
-                newP.isFavorite = (product.id == newP.id) ? newValue : newP.isFavorite
-                return newP
+            if let targetIndex = newState.products.firstIndex(of: product) {
+                var newProduct = product
+                newProduct.isFavorite = newValue
+                newState.products[targetIndex] = newProduct
             }
-            newState.products = newProducts
             newState.isRefresh = false
         }
         
