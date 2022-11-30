@@ -204,9 +204,10 @@ private extension HomeViewController {
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                     self.refreshControl.endRefreshing()
                 } else {
-                    // nextPage & favorite 
-                    let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
-                    self.snapshot.deleteItems(oldGoods)
+                    // nextPage & favorite
+                    self.snapshot.deleteSections([.goods])
+                    self.snapshot.appendSections([.goods])
+                    
                     self.snapshot.appendItems(state.products, toSection: .goods)
                     self.dataSource.apply(self.snapshot, animatingDifferences: true)
                 }
