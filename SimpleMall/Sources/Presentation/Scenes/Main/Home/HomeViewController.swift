@@ -192,26 +192,32 @@ private extension HomeViewController {
     }
     
     func bindState(_ reactor: HomeViewReactor) {
-        reactor.state.asObservable()
-            .bind { [weak self] state in
-                guard let self = self else { return }
-                if state.isRefresh {
-                    self.snapshot.deleteAllItems()
-                    self.snapshot.appendSections([.banner, .goods])
-                    
-                    self.snapshot.appendItems([state.banners], toSection: .banner)
-                    self.snapshot.appendItems(state.products, toSection: .goods)
-                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                    self.refreshControl.endRefreshing()
-                } else {
-                    // nextPage & favorite
-                    self.snapshot.deleteSections([.goods])
-                    self.snapshot.appendSections([.goods])
-                    
-                    self.snapshot.appendItems(state.products, toSection: .goods)
-                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                }
+        reactor.state
+            .filter { $0.isRefresh }
+            .asObservable()
+            .withUnretained(self)
+            .bind { owner, state in
+                owner.snapshot.deleteAllItems()
+                owner.snapshot.appendSections([.banner, .goods])
+                owner.snapshot.appendItems([state.banners], toSection: .banner)
+                owner.snapshot.appendItems(state.products, toSection: .goods)
+                
+                owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+                owner.refreshControl.endRefreshing()
             }.disposed(by: disposeBag)
         
+        reactor.state
+            .filter { !$0.isRefresh }
+            .map { $0.products }
+            .asObservable()
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .bind { owner, products in
+                owner.snapshot.deleteSections([.goods])
+                owner.snapshot.appendSections([.goods])
+                
+                owner.snapshot.appendItems(products, toSection: .goods)
+                owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
     }
 }
