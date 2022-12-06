@@ -115,6 +115,14 @@ final class HomeViewReactor: Reactor {
             newState.isRefresh = true
             
         case .appendNextProducts(let products):
+            guard !products.isEmpty else {
+                break
+            }
+            
+            guard let firstID = products.first?.id,
+                  newState.products.filter({ $0.id == firstID }).isEmpty else {
+                break
+            }
             newState.products += products
             newState.isRefresh = false
             
