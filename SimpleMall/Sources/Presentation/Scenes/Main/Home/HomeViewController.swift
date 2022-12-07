@@ -178,15 +178,23 @@ private extension HomeViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        collectionView.rx.didScroll
-            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.asyncInstance)
-            .withUnretained(self)
-            .map { owner, _ in
-                Reactor.Action.pagination(
-                    contentHeight: owner.collectionView.contentSize.height,
-                    contentOffsetY: owner.collectionView.contentOffset.y,
-                    scrollViewHeight: owner.collectionView.frame.size.height)
-            }
+//        collectionView.rx.didScroll
+//            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.asyncInstance)
+//            .withUnretained(self)
+//            .map { owner, _ in
+//                Reactor.Action.pagination(
+//                    contentHeight: owner.collectionView.contentSize.height,
+//                    contentOffsetY: owner.collectionView.contentOffset.y,
+//                    scrollViewHeight: owner.collectionView.frame.size.height)
+//            }
+//            .bind(to: reactor.action)
+//            .disposed(by: disposeBag)
+        
+        collectionView.rx.prefetchItems
+            .compactMap(\.last?.row)
+            .withLatestFrom(reactor.state) { ($0, $1.products.count) }
+            .filter { row, count in row >= count - 1 }
+            .map { _ in Reactor.Action.prefetch }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }

@@ -18,6 +18,7 @@ final class HomeViewReactor: Reactor {
             contentOffsetY: CGFloat,
             scrollViewHeight: CGFloat
         )
+        case prefetch
         case didTapFavorite(goodsID: Int, isFavorite: Bool)
     }
     
@@ -71,6 +72,25 @@ final class HomeViewReactor: Reactor {
         case let .pagination(contentHeight, contentOffsetY, scrollViewHeight):
             if contentHeight - scrollViewHeight < contentOffsetY,
                let lastID = currentState.products.last?.id
+            {
+                return Observable
+                    .combineLatest(
+                        productUseCase.products(lastID: lastID),
+                        favoriteProductUseCase.products())
+                    .map { products, favorites in
+                        let mutated = products.map { product in
+                            var newP = product
+                            newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
+                            return newP
+                        }
+                        return Mutation.appendNextProducts(mutated)
+                    }
+            } else {
+                return .empty()
+            }
+            
+        case .prefetch:
+            if let lastID = currentState.products.last?.id
             {
                 return Observable
                     .combineLatest(
