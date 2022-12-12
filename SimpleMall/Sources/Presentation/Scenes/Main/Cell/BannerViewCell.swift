@@ -85,8 +85,10 @@ final class BannerViewCell: UICollectionViewCell {
     // MARK: Methods
     
     private func setupConstraints() {
+        let imageHeight = self.bounds.width * 3 / 4
         self.collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+            make.height.equalTo(imageHeight).priority(999)
         }
         self.pagerView.snp.makeConstraints { make in
             make.height.equalTo(Metric.pagerViewHeight)
