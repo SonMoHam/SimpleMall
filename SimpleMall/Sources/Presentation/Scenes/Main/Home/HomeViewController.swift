@@ -5,13 +5,12 @@
 //  Created by 손대홍 on 2022/11/24.
 //
 
-import Foundation
 import UIKit
 
-import SnapKit
 import ReactorKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import SnapKit
 
 final class HomeViewController: UIViewController, View {
     
@@ -47,49 +46,17 @@ final class HomeViewController: UIViewController, View {
     
     // MARK: Properties
     
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: collectionViewLayout())
-        collectionView.backgroundColor = .white
-        collectionView.register(
-            BannerViewCell.self,
-            forCellWithReuseIdentifier: BannerViewCell.reuseIdentifier)
-
-        collectionView.register(
-            ProductCell.self,
-            forCellWithReuseIdentifier: ProductCell.reuseIdentifier)
-        return collectionView
-    }()
+    private lazy var collectionView: UICollectionView = makeCollectionView()
     
     private let refreshControl = UIRefreshControl()
     
-    typealias DataSource = UICollectionViewDiffableDataSource
-    private lazy var dataSource: DataSource<CollectionViewSection, AnyHashable> = DataSource(
-        collectionView: collectionView,
-        cellProvider: { [weak self] collectionView, indexPath, element in
-            if let banner = element as? [Banner],
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: BannerViewCell.reuseIdentifier,
-                    for: indexPath
-                ) as? BannerViewCell {
-                cell.configure(banner)
-                return cell
-            }
-            
-            if let product = element as? Product,
-               let cell = collectionView.dequeueReusableCell(
-                   withReuseIdentifier: ProductCell.reuseIdentifier,
-                   for: indexPath
-               ) as? ProductCell {
-                cell.configure(product)
-                cell.delegate = self
-               return cell
-           }
-            return UICollectionViewCell()
-        }
-    )
+    private typealias DataSource = UICollectionViewDiffableDataSource<
+        CollectionViewSection,
+        AnyHashable>
+    private lazy var dataSource: DataSource = makeDiffableDataSource()
+    
     private var snapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, AnyHashable>()
+    
     var disposeBag = DisposeBag()
     
     // MARK: Initializing
@@ -109,12 +76,8 @@ final class HomeViewController: UIViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.addSubview(collectionView)
         setupConstraints()
-        
-        collectionView.alwaysBounceVertical = true
-        collectionView.refreshControl = refreshControl
     }
     
     // MARK: Methods
@@ -129,8 +92,25 @@ final class HomeViewController: UIViewController, View {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+
+    private func makeCollectionView() -> UICollectionView {
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: makeCollectionViewCompositionalLayout())
+        collectionView.register(
+            BannerViewCell.self,
+            forCellWithReuseIdentifier: BannerViewCell.reuseIdentifier)
+
+        collectionView.register(
+            ProductCell.self,
+            forCellWithReuseIdentifier: ProductCell.reuseIdentifier)
+        collectionView.backgroundColor = .white
+        collectionView.alwaysBounceVertical = true
+        collectionView.refreshControl = refreshControl  // ???: make에서 주입 or viewDidLoad에서
+        return collectionView
+    }
     
-    private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
+    private func makeCollectionViewCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             guard let section = CollectionViewSection(rawValue: sectionIndex) else {
                 return nil
@@ -154,6 +134,35 @@ final class HomeViewController: UIViewController, View {
         }
         return layout
     }
+    
+    private func makeDiffableDataSource() -> DataSource {
+        let dataSource = DataSource(
+            collectionView: collectionView,
+            cellProvider: { [weak self] collectionView, indexPath, element in
+                if let banner = element as? [Banner],
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: BannerViewCell.reuseIdentifier,
+                        for: indexPath
+                    ) as? BannerViewCell {
+                    cell.configure(banner)
+                    return cell
+                }
+                
+                if let product = element as? Product,
+                   let cell = collectionView.dequeueReusableCell(
+                       withReuseIdentifier: ProductCell.reuseIdentifier,
+                       for: indexPath
+                   ) as? ProductCell {
+                    cell.configure(product)
+                    cell.delegate = self
+                   return cell
+               }
+                return UICollectionViewCell()
+            }
+        )
+        return dataSource
+    }
+    
 }
 
 // MARK: - ProductCellDelegate
@@ -178,39 +187,54 @@ private extension HomeViewController {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        collectionView.rx.didScroll
-            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.asyncInstance)
-            .withUnretained(self)
-            .map { owner, _ in
-                Reactor.Action.pagination(
-                    contentHeight: owner.collectionView.contentSize.height,
-                    contentOffsetY: owner.collectionView.contentOffset.y,
-                    scrollViewHeight: owner.collectionView.frame.size.height)
-            }
+//        collectionView.rx.didScroll
+//            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.asyncInstance)
+//            .withUnretained(self)
+//            .map { owner, _ in
+//                Reactor.Action.pagination(
+//                    contentHeight: owner.collectionView.contentSize.height,
+//                    contentOffsetY: owner.collectionView.contentOffset.y,
+//                    scrollViewHeight: owner.collectionView.frame.size.height)
+//            }
+//            .bind(to: reactor.action)
+//            .disposed(by: disposeBag)
+        
+        collectionView.rx.prefetchItems
+            .compactMap(\.last?.row)
+            .withLatestFrom(reactor.state) { ($0, $1.products.count) }
+            .filter { row, count in row >= count - 1 }
+            .map { _ in Reactor.Action.prefetch }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     
     func bindState(_ reactor: HomeViewReactor) {
-        reactor.state.asObservable()
-            .bind { [weak self] state in
-                guard let self = self else { return }
-                if state.isRefresh {
-                    self.snapshot.deleteAllItems()
-                    self.snapshot.appendSections([.banner, .goods])
-                    
-                    self.snapshot.appendItems([state.banners], toSection: .banner)
-                    self.snapshot.appendItems(state.products, toSection: .goods)
-                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                    self.refreshControl.endRefreshing()
-                } else {
-                    // nextPage & favorite 
-                    let oldGoods = self.snapshot.itemIdentifiers(inSection: .goods)
-                    self.snapshot.deleteItems(oldGoods)
-                    self.snapshot.appendItems(state.products, toSection: .goods)
-                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
-                }
+        reactor.state
+            .filter { $0.isRefresh }
+            .asObservable()
+            .withUnretained(self)
+            .bind { owner, state in
+                owner.snapshot.deleteAllItems()
+                owner.snapshot.appendSections([.banner, .goods])
+                owner.snapshot.appendItems([state.banners], toSection: .banner)
+                owner.snapshot.appendItems(state.products, toSection: .goods)
+                
+                owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+                owner.refreshControl.endRefreshing()
             }.disposed(by: disposeBag)
         
+        reactor.state
+            .filter { !$0.isRefresh }
+            .map { $0.products }
+            .asObservable()
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .bind { owner, products in
+                owner.snapshot.deleteSections([.goods])
+                owner.snapshot.appendSections([.goods])
+                
+                owner.snapshot.appendItems(products, toSection: .goods)
+                owner.dataSource.apply(owner.snapshot, animatingDifferences: true)
+            }.disposed(by: disposeBag)
     }
 }

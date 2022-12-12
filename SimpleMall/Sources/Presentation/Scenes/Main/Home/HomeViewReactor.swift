@@ -18,6 +18,7 @@ final class HomeViewReactor: Reactor {
             contentOffsetY: CGFloat,
             scrollViewHeight: CGFloat
         )
+        case prefetch
         case didTapFavorite(goodsID: Int, isFavorite: Bool)
     }
     
@@ -69,39 +70,52 @@ final class HomeViewReactor: Reactor {
                 }
             
         case let .pagination(contentHeight, contentOffsetY, scrollViewHeight):
-            if contentHeight - scrollViewHeight < contentOffsetY,
-               let lastID = currentState.products.last?.id
-            {
-                return Observable
-                    .combineLatest(
-                        productUseCase.products(lastID: lastID),
-                        favoriteProductUseCase.products())
-                    .map { products, favorites in
-                        let mutated = products.map { product in
-                            var newP = product
-                            newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
-                            return newP
-                        }
-                        return Mutation.appendNextProducts(mutated)
-                    }
-            } else {
+            guard
+                contentHeight - scrollViewHeight < contentOffsetY,
+                let lastID = currentState.products.last?.id
+            else {
                 return .empty()
             }
+            return Observable
+                .combineLatest(
+                    productUseCase.products(lastID: lastID),
+                    favoriteProductUseCase.products())
+                .map { products, favorites in
+                    let mutated = products.map { product in
+                        var newP = product
+                        newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
+                        return newP
+                    }
+                    return Mutation.appendNextProducts(mutated)
+                }
+            
+        case .prefetch:
+            guard let lastID = currentState.products.last?.id else {
+                return .empty()
+            }
+            return Observable
+                .combineLatest(
+                    productUseCase.products(lastID: lastID),
+                    favoriteProductUseCase.products())
+                .map { products, favorites in
+                    let mutated = products.map { product in
+                        var newP = product
+                        newP.isFavorite = !(favorites.filter { $0.id == product.id }.isEmpty)
+                        return newP
+                    }
+                    return Mutation.appendNextProducts(mutated)
+                }
             
         case let .didTapFavorite(goodsID, isFavorite):
-            if let product = currentState.products.filter({ $0.id == goodsID }).first {
-                if isFavorite {
-                    return favoriteProductUseCase
-                        .save(product: product)
-                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
-                } else {
-                    return favoriteProductUseCase
-                        .delete(product: product)
-                        .map { Mutation.updateFavoriteProducts(product, isFavorite) }
-                }
-            } else {
+            guard let product = currentState.products.filter({ $0.id == goodsID }).first
+            else {
                 return .empty()
             }
+            let useCaseObservable = isFavorite
+            ? favoriteProductUseCase.save(product: product)
+            : favoriteProductUseCase.delete(product: product)
+            return useCaseObservable
+                .map { Mutation.updateFavoriteProducts(product, isFavorite) }
         }
     }
     
@@ -114,17 +128,23 @@ final class HomeViewReactor: Reactor {
             newState.products = products
             newState.isRefresh = true
             
-        case .appendNextProducts(let products):
+        case .appendNextProducts(let products): 
+            guard
+                !products.isEmpty,
+                let firstID = products.first?.id,
+                newState.products.filter({ $0.id == firstID }).isEmpty
+            else {
+                break
+            }
             newState.products += products
             newState.isRefresh = false
             
         case let .updateFavoriteProducts(product, newValue):
-            let newProducts = newState.products.map {
-                var newP = $0
-                newP.isFavorite = (product.id == newP.id) ? newValue : newP.isFavorite
-                return newP
+            if let targetIndex = newState.products.firstIndex(of: product) {
+                var newProduct = product
+                newProduct.isFavorite = newValue
+                newState.products[targetIndex] = newProduct
             }
-            newState.products = newProducts
             newState.isRefresh = false
         }
         

@@ -12,8 +12,11 @@ enum RealmError: Error {
     case objectReadFailed
 }
 
-final class RealmManager<T: RealmConvertible> where T == T.RealmEntity.DomainEntity,
-                                                    T.RealmEntity: Object {
+final class RealmManager<T: RealmConvertible>
+where
+    T == T.RealmEntity.DomainEntity,
+    T.RealmEntity: Object
+{
     // ???: try catch 여부
     private var realm: Realm {
         return try! Realm()
